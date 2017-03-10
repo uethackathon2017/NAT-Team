@@ -19,5 +19,11 @@ target 'CrossWorld' do
   pod 'ImageSlideshow/Kingfisher'
   pod 'AttributedTextView'
   pod 'SwiftDate'
+  
+  #Facebook SDK
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKMessengerShareKit'
 
 end

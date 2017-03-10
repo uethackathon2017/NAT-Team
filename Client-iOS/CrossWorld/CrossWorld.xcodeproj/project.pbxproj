@@ -7,27 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2CD2C07DD80B3E57B74FC2 /* Pods_CrossWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F521D370B99DB0FB27A46F83 /* Pods_CrossWorld.framework */; };
+		464EE8B71E72EC7600044C70 /* LeftChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B21E72EC7600044C70 /* LeftChatCell.swift */; };
+		464EE8B81E72EC7600044C70 /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B31E72EC7600044C70 /* RightChatCell.swift */; };
+		464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B51E72EC7600044C70 /* MessageViewController.swift */; };
+		464EE8BB1E72EC8300044C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 464EE8BA1E72EC8300044C70 /* Assets.xcassets */; };
+		464EE8BD1E72ECE000044C70 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8BC1E72ECE000044C70 /* Messenger.swift */; };
+		AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */; };
+		ACB47C3F1E72D2D10059E114 /* ASTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C3E1E72D2D10059E114 /* ASTextField.swift */; };
+		ACB47C421E72D8AF0059E114 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C411E72D8AF0059E114 /* RegisterViewController.swift */; };
+		ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */; };
 		ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8E31E72C78900C39086 /* AppDelegate.swift */; };
-		ACEFC8F01E72C78900C39086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E41E72C78900C39086 /* Assets.xcassets */; };
 		ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E61E72C78900C39086 /* LaunchScreen.storyboard */; };
 		ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E81E72C78900C39086 /* Main.storyboard */; };
 		ACEFC8F31E72C78900C39086 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8EA1E72C78900C39086 /* Info.plist */; };
 		ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8F41E72C7AE00C39086 /* User.swift */; };
 		ACEFC8F71E72C7C400C39086 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8F61E72C7C400C39086 /* Utils.swift */; };
 		ACEFC8FA1E72C7E700C39086 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8F91E72C7E700C39086 /* LoginViewController.swift */; };
+		ACEFC8FD1E72C99500C39086 /* AppDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8FC1E72C99500C39086 /* AppDefine.swift */; };
+		ACEFC8FF1E72C9DD00C39086 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8FE1E72C9DD00C39086 /* AppViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EC5D6D859E30ED5168ADDCD /* Pods-CrossWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossWorld/Pods-CrossWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		464EE8B21E72EC7600044C70 /* LeftChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftChatCell.swift; sourceTree = "<group>"; };
+		464EE8B31E72EC7600044C70 /* RightChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
+		464EE8B51E72EC7600044C70 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		464EE8BA1E72EC8300044C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CrossWorld/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		464EE8BC1E72ECE000044C70 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
+		AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
+		ACB47C3E1E72D2D10059E114 /* ASTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTextField.swift; sourceTree = "<group>"; };
+		ACB47C411E72D8AF0059E114 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDetailViewController.swift; sourceTree = "<group>"; };
 		ACEFC8CD1E72C62A00C39086 /* CrossWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEFC8E21E72C78900C39086 /* CrossWorld-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrossWorld-Bridging-Header.h"; path = "../CrossWorld-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACEFC8E31E72C78900C39086 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
-		ACEFC8E41E72C78900C39086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		ACEFC8E71E72C78900C39086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACEFC8E91E72C78900C39086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		ACEFC8EA1E72C78900C39086 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		ACEFC8F41E72C7AE00C39086 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACEFC8F61E72C7C400C39086 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		ACEFC8F91E72C7E700C39086 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ACEFC8FC1E72C99500C39086 /* AppDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefine.swift; sourceTree = "<group>"; };
+		ACEFC8FE1E72C9DD00C39086 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		AE044EE9EF9943D64E10287F /* Pods-CrossWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossWorld/Pods-CrossWorld.release.xcconfig"; sourceTree = "<group>"; };
+		F521D370B99DB0FB27A46F83 /* Pods_CrossWorld.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossWorld.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +59,86 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2CD2C07DD80B3E57B74FC2 /* Pods_CrossWorld.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		464EE8B01E72EC7600044C70 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				464EE8B11E72EC7600044C70 /* Custom */,
+				464EE8B41E72EC7600044C70 /* ViewController */,
+				464EE8B61E72EC7600044C70 /* ViewModel */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		464EE8B11E72EC7600044C70 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				464EE8B21E72EC7600044C70 /* LeftChatCell.swift */,
+				464EE8B31E72EC7600044C70 /* RightChatCell.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		464EE8B41E72EC7600044C70 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				464EE8B51E72EC7600044C70 /* MessageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		464EE8B61E72EC7600044C70 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC4335BB1E72D18800EFBF96 /* LoginDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */,
+			);
+			path = LoginDetail;
+			sourceTree = "<group>";
+		};
+		ACB47C3D1E72D2C60059E114 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				ACB47C3E1E72D2D10059E114 /* ASTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		ACB47C401E72D8670059E114 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				ACB47C411E72D8AF0059E114 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		ACB47C431E72DC210059E114 /* RegisterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */,
+			);
+			path = RegisterDetail;
+			sourceTree = "<group>";
+		};
 		ACEFC8C41E72C62A00C39086 = {
 			isa = PBXGroup;
 			children = (
 				ACEFC8CF1E72C62A00C39086 /* CrossWorld */,
 				ACEFC8CE1E72C62A00C39086 /* Products */,
+				FC02731E6CBBB49DE1BBA8AE /* Pods */,
+				B3119AB52822DF2B60473B3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +153,7 @@
 		ACEFC8CF1E72C62A00C39086 /* CrossWorld */ = {
 			isa = PBXGroup;
 			children = (
+				ACEFC8FB1E72C98900C39086 /* BaseProject */,
 				ACEFC8E51E72C78900C39086 /* Base.lproj */,
 				ACEFC8EB1E72C78900C39086 /* Model */,
 				ACEFC8EC1E72C78900C39086 /* Resource */,
@@ -84,6 +178,7 @@
 		ACEFC8EB1E72C78900C39086 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				464EE8BC1E72ECE000044C70 /* Messenger.swift */,
 				ACEFC8F41E72C7AE00C39086 /* User.swift */,
 			);
 			path = Model;
@@ -92,7 +187,7 @@
 		ACEFC8EC1E72C78900C39086 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				ACEFC8E41E72C78900C39086 /* Assets.xcassets */,
+				464EE8BA1E72EC8300044C70 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -100,6 +195,7 @@
 		ACEFC8ED1E72C78900C39086 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ACB47C3D1E72D2C60059E114 /* TextField */,
 				ACEFC8F61E72C7C400C39086 /* Utils.swift */,
 			);
 			path = Utils;
@@ -108,6 +204,10 @@
 		ACEFC8EE1E72C78900C39086 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				464EE8B01E72EC7600044C70 /* Chat */,
+				ACB47C431E72DC210059E114 /* RegisterDetail */,
+				ACB47C401E72D8670059E114 /* Register */,
+				AC4335BB1E72D18800EFBF96 /* LoginDetail */,
 				ACEFC8F81E72C7DB00C39086 /* Login */,
 			);
 			path = View;
@@ -121,6 +221,32 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		ACEFC8FB1E72C98900C39086 /* BaseProject */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8FC1E72C99500C39086 /* AppDefine.swift */,
+				ACEFC8FE1E72C9DD00C39086 /* AppViewController.swift */,
+			);
+			path = BaseProject;
+			sourceTree = "<group>";
+		};
+		B3119AB52822DF2B60473B3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F521D370B99DB0FB27A46F83 /* Pods_CrossWorld.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC02731E6CBBB49DE1BBA8AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EC5D6D859E30ED5168ADDCD /* Pods-CrossWorld.debug.xcconfig */,
+				AE044EE9EF9943D64E10287F /* Pods-CrossWorld.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACEFC8DF1E72C62A00C39086 /* Build configuration list for PBXNativeTarget "CrossWorld" */;
 			buildPhases = (
+				21C8A519A9374226E37F2C13 /* [CP] Check Pods Manifest.lock */,
 				ACEFC8C91E72C62A00C39086 /* Sources */,
 				ACEFC8CA1E72C62A00C39086 /* Frameworks */,
 				ACEFC8CB1E72C62A00C39086 /* Resources */,
+				7C186D2DA2DFE6D0C65408DA /* [CP] Embed Pods Frameworks */,
+				21839EF3E3DC64E635F40363 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,22 +313,80 @@
 			files = (
 				ACEFC8F31E72C78900C39086 /* Info.plist in Resources */,
 				ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */,
-				ACEFC8F01E72C78900C39086 /* Assets.xcassets in Resources */,
 				ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */,
+				464EE8BB1E72EC8300044C70 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21839EF3E3DC64E635F40363 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrossWorld/Pods-CrossWorld-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21C8A519A9374226E37F2C13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C186D2DA2DFE6D0C65408DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrossWorld/Pods-CrossWorld-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ACEFC8C91E72C62A00C39086 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB47C421E72D8AF0059E114 /* RegisterViewController.swift in Sources */,
+				464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */,
+				ACEFC8FF1E72C9DD00C39086 /* AppViewController.swift in Sources */,
+				ACB47C3F1E72D2D10059E114 /* ASTextField.swift in Sources */,
+				464EE8B71E72EC7600044C70 /* LeftChatCell.swift in Sources */,
+				464EE8B81E72EC7600044C70 /* RightChatCell.swift in Sources */,
+				ACEFC8FD1E72C99500C39086 /* AppDefine.swift in Sources */,
+				AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */,
 				ACEFC8FA1E72C7E700C39086 /* LoginViewController.swift in Sources */,
 				ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */,
 				ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */,
+				ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */,
 				ACEFC8F71E72C7C400C39086 /* Utils.swift in Sources */,
+				464EE8BD1E72ECE000044C70 /* Messenger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +505,7 @@
 		};
 		ACEFC8E01E72C62A00C39086 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC5D6D859E30ED5168ADDCD /* Pods-CrossWorld.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -334,6 +522,7 @@
 		};
 		ACEFC8E11E72C62A00C39086 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE044EE9EF9943D64E10287F /* Pods-CrossWorld.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -366,6 +555,7 @@
 				ACEFC8E11E72C62A00C39086 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
