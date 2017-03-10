@@ -127,8 +127,9 @@ extension AppViewController {
             button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
             button.setImage(UIImage.init(named: strAvatar) ?? #imageLiteral(resourceName: "navi_user"), for: .normal)
             button.layer.cornerRadius = 0.5 * button.bounds.size.width
-            let barButton = UIBarButtonItem()
+            let barButton = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(leftNaviButtonTapped))
             barButton.customView = button
+            button.addTarget(self, action: #selector(leftNaviButtonTapped), for: .touchUpInside)
             self.navigationItem.leftBarButtonItem = barButton
         case .stringButton(let titleButton):
             let leftButton = UIBarButtonItem.init(title: titleButton, style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftNaviButtonTapped))
@@ -159,6 +160,7 @@ extension AppViewController {
     }
     
     func leftNaviButtonTapped() {
+        self.view.endEditing(true)
         switch leftButtonType {
         case .menu:
             fatalError("You need overide this method.")
@@ -179,12 +181,24 @@ extension AppViewController {
         case .stringButton(_):
             fatalError("You need overide this method.")
             break
+        case .user(let imageName):
+            if UIImage.init(named: imageName) != nil{
+                fatalError("You need overide this method.")
+            }else{
+                if let user = storyboard?.instantiateViewController(withIdentifier: "UserViewController" ) as? UserViewController{
+                    let navi = UINavigationController(rootViewController: user)
+                    self.present(navi, animated: true, completion: nil)
+                }
+            }
+            
+            break
         default:
             fatalError("You need overide this method.")
         }
     }
     
     func rightNaviButtonTapped() {
+        self.view.endEditing(true)
         switch rightButtonType {
         case .cancel:
             if typeViewController == .present {
@@ -194,8 +208,10 @@ extension AppViewController {
             }
             break
         case .notification:
-            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            
+            if let noti = storyboard?.instantiateViewController(withIdentifier: "NotificationViewController") as? NotificationViewController{
+                let navi = UINavigationController(rootViewController: noti)
+                self.present(navi, animated: true, completion: nil)
+            }
             break
         default:
             fatalError("You need overide this method.")

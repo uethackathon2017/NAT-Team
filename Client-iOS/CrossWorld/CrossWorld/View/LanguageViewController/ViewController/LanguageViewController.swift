@@ -98,11 +98,29 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableViewAction
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: AppDefine.Segue.languageToHome, sender: nil)
+        let item = viewModel.listCell[indexPath.row]
+        User.current.languageId = NSNumber(value: item.id)
+        
+        register()
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //
+    }
+    
+    func register(){
+        self.startAnimating()
+        viewModel.register { (isSucees) in
+            self.stopAnimating()
+            if isSucees{
+                _ = self.navigationController?.popToRootViewController(animated: true)
+                if let login = self.navigationController?.viewControllers.first as? LoginViewController {
+                    login.loginWithPhone()
+                }
+            }else{
+                //TODO: Error?
+            }
+        }
     }
 }
 

@@ -33,6 +33,7 @@ class CountryPickerViewController: UIViewController, PopupContentViewController,
         super.viewDidLoad()
 
         self.countryPicker.countryPickerDelegate = self
+        self.countryPicker.showPhoneNumbers = false
         if !code.isBlank {
             countryPicker.setCountry(code)
         }

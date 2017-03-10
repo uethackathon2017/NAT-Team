@@ -15,7 +15,7 @@ class AppError {
     enum ErrorType: String {
         case none = ""
         // User
-        case blankUserName = "Hẫy nhập tên tài khoản"
+        case blankUserName = "Hãy nhập tên tài khoản"
         case blankPass = "Hãy nhập mật khẩu"
         case blankRePassword = "Hãy nhập lại mật khẩu"
         case blankMobile = "Hãy nhập số điện thoại"

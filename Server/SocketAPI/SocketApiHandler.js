@@ -9,6 +9,7 @@ var SocketApiHandler = {
         this.nsp.sockets.on('connection', function (socket) {
             console.log('New connection');
 
+            require('./RoomHandle').attach(io, socket);
             require('./ChatHandle').attach(io, socket);
 
             socket.on('disconnect', function () {

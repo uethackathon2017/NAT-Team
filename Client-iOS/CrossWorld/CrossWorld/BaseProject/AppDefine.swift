@@ -34,6 +34,7 @@ class AppDefine {
         static var languageToHome = "languageToHome"
         static var loginDetailToHome = "loginDetailToHome"
         static var loginToHome = "loginToHome"
+        static var homeToLesson = "homeToLesson"
     }
     
     // MARK: - Define
@@ -47,6 +48,12 @@ class AppDefine {
         //Home
         static var idCellHomeActivity = "idCellHomeActivity"
         static var idCellHomeDetail = "idCellHomeDetail"
+        
+        // Friend
+        static var idCellSpotyPeople = "idCellSpotyPeople"
+        static var idCellActionFriend = "idCellActionFriend"
+        static var idCellPeople = "idCellPeople"
+        static var idCellLesson = "idCellLesson"
     }
     
 }

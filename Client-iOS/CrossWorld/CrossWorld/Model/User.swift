@@ -13,11 +13,17 @@ class User: EVObject {
     
     static var current = User()
     
+    var avatar: String?
     var phoneNumber: String?
+    var email: String?
     var password: String?
     var userName: String?
     var fullName: String?
     var countryId: String?
     var facebookId: String?
     var languageId: NSNumber?
+    var birthday: String?
+    
+    var user_id: String?
+    var token: String?
 }

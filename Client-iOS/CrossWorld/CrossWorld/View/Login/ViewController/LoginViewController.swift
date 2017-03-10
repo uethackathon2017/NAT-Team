@@ -97,6 +97,19 @@ class LoginViewController: AppViewController, FBSDKLoginButtonDelegate {
         }
     }
     
+    func loginWithPhone(){
+        self.startAnimating()
+        APIRequest().loginFacebook(facebook_token: nil, phone_number: User.current.phoneNumber, password: User.current.password, handle: { (isSuccess, user) in
+            self.stopAnimating()
+            if isSuccess {
+                User.current = user!
+                self.performSegue(withIdentifier: AppDefine.Segue.loginToHome, sender: nil)
+            }
+        }, handleNotActive: {
+            
+        })
+    }
+    
     func fetchProfile(){
         self.startAnimating()
         let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name, birthday, picture.type(large)"])

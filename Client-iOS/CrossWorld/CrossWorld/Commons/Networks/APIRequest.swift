@@ -10,26 +10,28 @@ import Foundation
 import Alamofire
 
 class APIRequest {
+
+    //API Register
+    func registerAPI(handle: @escaping (_ isSuscess: Bool, _ data: NSDictionary?)->Void){
+        var params: Parameters = [
+            "full_name": User.current.fullName ?? "",
+            "phone_number": User.current.phoneNumber ?? "",
+            "password": User.current.password ?? "",
+            "user_name": User.current.userName ?? "",
+            "country_id": User.current.countryId ?? "",
+            "language_id": User.current.languageId?.intValue ?? "",
+            "birthday": User.current.birthday ?? "",
+        ]
+    
+        if let facebookid = User.current.facebookId {
+            params["facebook_id"] = facebookid
+        }
+
+        APIHandles().RegisterAPIHandle(urlString: Domain.URL_REGISTER, params: params, method: .post, handle: { (isSuccess, data) in
+            handle(isSuccess, data)
+        })
+    }
 //
-//    //API Register
-//    func RegisterAPI(phone: String, pass: String, name: String, email: String?, handle: @escaping (_ isSuscess: Bool, _ data: NSDictionary?)->Void){
-//        
-//        var params = [
-//            "full_name": name,
-//            "phone_number": phone,
-//            "password": pass
-//        ]
-//        if let mail = email{
-//            if !mail.isBlank {
-//                params["email"] = mail
-//            }
-//        }
-//        
-//        APIHandles().RegisterAPIHandle(urlString: Domain.URL_REGISTER, params: params, method: .post, handle: { (isSuccess, data) in
-//            handle(isSuccess, data)
-//        })
-//    }
-//    
 //    //API verity acount
 //    func verifyPhone(phone: String, code: String, handle: @escaping (_ isSuscess: Bool, _ data: NSDictionary?)->Void){
 //        

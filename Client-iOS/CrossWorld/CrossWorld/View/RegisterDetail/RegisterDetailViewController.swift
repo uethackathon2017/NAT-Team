@@ -43,6 +43,15 @@ class RegisterDetailViewController: AppViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let user = User.current
+        if let name = user.fullName{
+            txtName.text = name
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,6 +71,9 @@ class RegisterDetailViewController: AppViewController {
         }
         
         _ = self.txtName.reactive.text.observeNext(with: { (text) in
+            guard !(text?.isBlank)! else {
+                return
+            }
             User.current.fullName = text
         })
         
@@ -71,6 +83,7 @@ class RegisterDetailViewController: AppViewController {
         
         _ = self.btnCountry.reactive.tap.observeNext { [weak self] in
             self?.showCountryPicker()
+            self?.view.endEditing(true)
         }
         
         _ = self.btnBirthday.reactive.tap.observeNext { [weak self] in
@@ -90,6 +103,7 @@ class RegisterDetailViewController: AppViewController {
             self?.txtCountry.text = name
             self?.txtCountry.animateViewsForTextEntry()
             self?.txtCountry.animateViewsForTextDisplay()
+            User.current.countryId = country
         }
         picker.code = countryCode ?? "VN"
 //        if !self.viewModel.countryCode.isBlank {
@@ -116,6 +130,7 @@ class RegisterDetailViewController: AppViewController {
                 self?.txtBirthday.text = clearDate.string(custom: "dd/MM/yyyy")
                 self?.txtBirthday.animateViewsForTextEntry()
                 self?.txtBirthday.animateViewsForTextDisplay()
+                User.current.birthday = self?.txtBirthday.text
             }
         }
         pickerVC.popup = PopupController.create(self.tabBarController ?? self.navigationController ?? self).customize([

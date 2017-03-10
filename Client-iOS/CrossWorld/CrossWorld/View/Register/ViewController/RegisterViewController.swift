@@ -45,14 +45,6 @@ class RegisterViewController: AppViewController {
         self.typeNavigationBar = .transparent
         self.rightButtonType = .none
         self.leftButtonType = .back
-        
-        if let name = User.current.fullName {
-            self.txtName.text = name
-        }
-        
-        if let phone = User.current.phoneNumber {
-            self.txtName.text = phone
-        }
     }
     
     override func setupAction() {

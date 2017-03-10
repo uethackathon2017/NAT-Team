@@ -2,17 +2,19 @@ var express = require('express');
 var app = express();
 
 app.use(express.static('public'));
-// app.set("view engine", "ejs");
-// app.set("views", "./views");
 var server = require("http").createServer(app);
 var io = require("socket.io").listen(server);
 
+app.get('/', function(req, res) {
+	res.sendFile(__dirname + "/views/index.html");
+})
+
 var WebAPIHandler = require('./api/WebAPIHandler');
-// var SocketAPIHandler = require('./SocketAPI/SocketAPIHandler');
+var SocketAPIHandler = require('./SocketAPI/SocketAPIHandler');
 
 server.listen(process.env.PORT || 3000);
 
 WebAPIHandler.init(app, express);
-// SocketAPIHandler.init(io);
+SocketAPIHandler.init(io);
 
 console.log('server started on 3000')

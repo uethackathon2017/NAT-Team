@@ -19,7 +19,7 @@ class Domain{
     
     static let URL_LOGIN = DOMAIN_URL + "/login"
     
-    static let URL_REGISTER = DOMAIN_URL + "/customer/register"
+    static let URL_REGISTER = DOMAIN_URL + "/register"
     static let URL_VETIFY = DOMAIN_URL + "/customer/register/verify"
     static let URL_RESENT_VETIFY = DOMAIN_URL + "/customer/register/resend-verify"
     static let URL_FORGET_PASSWORD = DOMAIN_URL + "/customer/forget-password"

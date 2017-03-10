@@ -24,4 +24,14 @@ class LanguageViewModel {
         CellDescription(name: "Spanise", image: "language_vn", id: 4)
     ]
     
+    func register(complite: @escaping (_ isComplite: Bool)->Void){
+        APIRequest().registerAPI { (isSuccess, data) in
+            if isSuccess {
+                complite(true)
+            }else{
+                complite(false)
+            }
+        }
+    }
+    
 }

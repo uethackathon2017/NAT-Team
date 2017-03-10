@@ -62,6 +62,9 @@
     Const.msgConfigError = 'Error while getting config';
     Const.msgConfigIncorrectId = 'Incorrect Id';
 
+    // get room
+    Const.msgGetRoom = 'get room';
+
     // socket token
     Const.msgTokenSuccess = "Token success";
     Const.msgNotValidToken = "Not valid token";

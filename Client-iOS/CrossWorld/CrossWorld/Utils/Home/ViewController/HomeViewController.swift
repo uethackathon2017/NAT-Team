@@ -39,7 +39,8 @@ class HomeViewController: AppViewController {
         self.typeNavigationBar = .normal
         self.rightButtonType = .notification
         self.leftButtonType = .user("")
-        self.title = "CrossWorld"
+        self.title = "Nhà"
+        self.navigationItem.title = "CrossWorld"
     }
 
 }
@@ -90,6 +91,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: AppDefine.cellId.idCellHomeActivity, for: indexPath) as? HomeActivityTableViewCell {
+                cell.btnFun.addTarget(self, action: #selector(goToLesson), for: .touchUpInside)
+                cell.btnWord.addTarget(self, action: #selector(goToLesson), for: .touchUpInside)
+                cell.btnLesson.addTarget(self, action: #selector(goToLesson), for: .touchUpInside)
+                cell.btnActivity.addTarget(self, action: #selector(goToLesson), for: .touchUpInside)
                 return cell
             }
         } else if indexPath.section == 1 {
@@ -115,5 +120,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //
+    }
+}
+
+// MARK: - Action
+extension HomeViewController {
+    func goToLesson() {
+        self.performSegue(withIdentifier: AppDefine.Segue.homeToLesson, sender: nil)
     }
 }
