@@ -20,13 +20,20 @@ class AppDefine {
     
     // MARK: - Screen ID / Class File Name
     struct Screen {
-        
+        static let converstation = "Trò chuyện"
+        static let chat = "Tin nhắn"
     }
     
     // MARK: - Segue ID
     struct Segue {
         // Login/Register
         static var registerToDetail = "registerToDetail"
+        static var loginToRegister = "loginToRegister"
+        static let conversationToChat = "conversationToChat"
+        static var registerDetailToLanguage = "registerDetailToLanguage"
+        static var languageToHome = "languageToHome"
+        static var loginDetailToHome = "loginDetailToHome"
+        static var loginToHome = "loginToHome"
     }
     
     // MARK: - Define
@@ -36,7 +43,10 @@ class AppDefine {
     
     // MARK: - cell/item ID
     struct cellId {
-        
+        static var idLanguageCell = "idLanguageCell"
+        //Home
+        static var idCellHomeActivity = "idCellHomeActivity"
+        static var idCellHomeDetail = "idCellHomeDetail"
     }
     
 }

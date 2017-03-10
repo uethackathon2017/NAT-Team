@@ -6,4 +6,18 @@
 //  Copyright © 2017 Anh Son Le. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import EVReflection
+
+class User: EVObject {
+    
+    static var current = User()
+    
+    var phoneNumber: String?
+    var password: String?
+    var userName: String?
+    var fullName: String?
+    var countryId: String?
+    var facebookId: String?
+    var languageId: NSNumber?
+}

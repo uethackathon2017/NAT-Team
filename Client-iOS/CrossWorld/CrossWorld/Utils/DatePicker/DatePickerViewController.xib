@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerViewController" customModule="Omnia" customModuleProvider="target">
+            <connections>
+                <outlet property="btnCancel" destination="r32-AN-deJ" id="UVr-Gr-3ge"/>
+                <outlet property="btnDone" destination="U51-xX-T7d" id="4mT-3K-Owl"/>
+                <outlet property="picker" destination="OHO-ge-R4o" id="tHk-SB-3Lc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="AnimatableView" customModule="IBAnimatable">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-Vz-SGT" customClass="AnimatableView" customModule="IBAnimatable">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_blurEffectStyle" value="extralight"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_vibrancyEffectStyle" value="extralight"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OHO-ge-R4o">
+                    <rect key="frame" x="0.0" y="51" width="375" height="216"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="216" id="OUg-yX-p38"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="510500125.16224402">
+                        <!--2017-03-06 13:35:25 +0000-->
+                    </date>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U51-xX-T7d">
+                    <rect key="frame" x="284" y="0.0" width="91" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="91" id="ZUk-li-oLY"/>
+                    </constraints>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="btnDoneTap:" destination="-1" eventType="touchUpInside" id="KJM-bE-OHF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r32-AN-deJ">
+                    <rect key="frame" x="0.0" y="0.0" width="91" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="91" id="qby-tW-xoP"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnCancelTap:" destination="-1" eventType="touchUpInside" id="fEl-RF-3fA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="OHO-ge-R4o" firstAttribute="top" secondItem="r32-AN-deJ" secondAttribute="bottom" constant="8" id="3pL-Ve-6Hx"/>
+                <constraint firstAttribute="trailing" secondItem="OHO-ge-R4o" secondAttribute="trailing" id="6oF-3V-bC2"/>
+                <constraint firstItem="ObI-Vz-SGT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DN7-kD-Qra"/>
+                <constraint firstAttribute="trailing" secondItem="ObI-Vz-SGT" secondAttribute="trailing" id="I6K-1e-YKx"/>
+                <constraint firstItem="OHO-ge-R4o" firstAttribute="top" secondItem="U51-xX-T7d" secondAttribute="bottom" constant="8" id="IuW-hC-ufg"/>
+                <constraint firstAttribute="trailing" secondItem="U51-xX-T7d" secondAttribute="trailing" id="dsx-i7-1LQ"/>
+                <constraint firstItem="r32-AN-deJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eqF-Ms-SFx"/>
+                <constraint firstAttribute="bottom" secondItem="OHO-ge-R4o" secondAttribute="bottom" id="mum-oo-I9c"/>
+                <constraint firstItem="r32-AN-deJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nFw-TL-fvc"/>
+                <constraint firstItem="ObI-Vz-SGT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pZq-Bd-Gts"/>
+                <constraint firstItem="OHO-ge-R4o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uhH-kq-nKF"/>
+                <constraint firstAttribute="bottom" secondItem="ObI-Vz-SGT" secondAttribute="bottom" id="vVN-o7-MLx"/>
+                <constraint firstItem="U51-xX-T7d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yVc-7O-paB"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="25.5" y="-57.5"/>
+        </view>
+    </objects>
+</document>

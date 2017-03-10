@@ -1,16 +1,14 @@
-/**
- * Created by huynd on 24/11/2016.
- */
 var _ = require('lodash');
-
 var express = require('express');
 var router = express.Router();
-var customer = require('../models/customer');
+var user = require('../models/user');
 var responseData = require('../models/responseData');
 
 var jwt = require('jsonwebtoken');
 var Const = require('../const');
 var bcrypt = require('bcrypt-nodejs');
+var graph = require('fbgraph');
+var connfigFacebook = require('../config/facebook');
 
 var Login = function () {
 };
@@ -19,82 +17,89 @@ Login.prototype.attach = function (router) {
     var self = this;
 
     router.post('/', function (req, res) {
-        console.log(req.headers['x-access-token']);
-        customer.connect();
-
-        var time = new Date();
+        console.log('Login');
         var data = {
             phone_number: req.body.phone_number,
             password: req.body.password,
-            last_login: time,
-            social_id: req.body.social_id
+            facebook_token: req.body.facebook_token
         };
-
-        console.log('Login Customer');
+        
         console.log(data);
-        customer.findByPhone(data.phone_number, function (err, result) {
-            if (err) {
-                console.log('Login Customer: Login Fail');
-                console.log(err);
-                res.json(responseData.create(Const.successFalse, Const.msgError, Const.resLoginFail));
-            }
-            else {
-                if (!result) {
-                    console.log('Login Customer: Phone Number Incorrect');
-                    res.json(responseData.create(Const.successFalse, Const.msgPhoneNumberIncorrect, Const.resPhoneNumIncorrect));
-                } else {
-                    if (!result.verified) {
-                        console.log('Login Customer: Not verify');
-                        var resData = responseData.create(Const.successFalse, Const.msgNotVerify, Const.resNotVerified);
-                        ////send verify code
-                        client.messages.create({
-                            to: result.phone_number,
-                            from: twilio.TWILIO_NUMBER,
-                            body: result.verify_code
-                        }, function (err, message) {
-                            if (err) {
-                                console.log(err);
-                            }
-                            else {
-                                console.log(message.sid);
-                            }
-                        });
-                        res.json(resData);
-                    } else if (result.block) {
-                        console.log('Login Customer: Blocked');
-                        res.json(responseData.create(Const.successFalse, Const.msgBlocked, Const.resBlocked));
+        if(!data.facebook_token) {
+            user.connect();
+            user.findByPhone(data.phone_number, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    res.json(responseData.create(Const.successFalse, Const.msgError, Const.resLoginFail));
+                }
+                else {
+                    if (!result) {
+                        console.log('Login: Phone Number Incorrect');
+                        res.json(responseData.create(Const.successFalse, Const.msgPhoneNumberIncorrect, Const.resPhoneNumIncorrect));
                     } else {
+                        console.log(result.user_id)
                         bcrypt.compare(data.password, result.password, function (err, r) {
                             if (r) {
-                                result['last_login'] = new Date();
                                 var token = jwt.sign(result.dataValues, Const.authenticateKey, {
                                     expiresIn: "7d"
                                 });
-                                data.password = result.password;
-                                data.customer_id = result.customer_id;
-                                data['login_status'] = true;
-                                if (result.social_id) {
-                                    data.social_id = result.social_id;
-                                }
-                                console.log(data);
-                                customer.update(data, function (err, r) {
-                                    if (err)
-                                        console.log('Login Customer: update last_login fail');
-                                    else
-                                        console.log('Login Customer: update last_login success')
+                                user.update({user_id: result.user_id, login_status: 1}, function (err) {
+                                    if (err) console.log('Login: update login_status fail');
                                 });
-                                var customerInfo = responseData.create(Const.successTrue, Const.msgLoginSuccess, Const.resNoErrorCode, token, result.customer_id, result.resEmptyDriverId);
-                                customerInfo.data = _.merge(customerInfo.data, _.pick(result, ['full_name', 'phone_number', 'email', 'avatar']));
-                                res.json(customerInfo);
+                                var userInfo = responseData.create(Const.successTrue, Const.msgLoginSuccess, Const.resNoErrorCode, token, result.user_id);
+                                userInfo.data = _.merge(userInfo.data, _.pick(result, ['user_name','full_name', 'phone_number', 'avatar']));
+                                res.json(userInfo);
                             } else {
-                                console.log('Login Customer: Password incorrect');
+                                console.log('Login: Password incorrect');
                                 res.json(responseData.create(Const.successFalse, Const.msgPasswordIncorrect, Const.resPWIncorrect));
                             }
                         });
                     }
                 }
-            }
-        });
+            });
+        } else {
+            graph.extendAccessToken({
+                    "access_token":   data.facebook_token
+                  , "client_id":      connfigFacebook.facebook_api_key
+                  , "client_secret":  connfigFacebook.facebook_api_secret
+                }, function (err) {
+                    if(err) {
+                        console.log(err);
+                        res.json(responseData.create(Const.successFalse, Const.msgError, Const.resError));
+                    } else {
+                        var query = "https://graph.facebook.com/me?access_token=" + data.facebook_token;
+                        graph.get(query, function(err, resFB) {
+                            if(err) {
+                                console.log(err);
+                                res.json(responseData.create(Const.successFalse, Const.msgError, Const.resError));
+                            } else {
+                                user.connect();
+                                user.findByFacebookId(resFB.id, function(err, result) {
+                                    if(err) {
+                                        console.log(err);
+                                        res.json(responseData.create(Const.successFalse, Const.msgError, Const.resError));
+                                    } else {
+                                        if(result) {
+                                            var token = jwt.sign(result.dataValues, Const.authenticateKey, {
+                                            expiresIn: "7d"
+                                            });
+                                            user.update({user_id: result.user_id, login_status: 1}, function (err) {
+                                                if (err) console.log('Login: update login_status fail');
+                                            });
+                                            var userInfo = responseData.create(Const.successTrue, Const.msgLoginSuccess, Const.resNoErrorCode, token, result.user_id);
+                                            userInfo.data = _.merge(userInfo.data, _.pick(result, ['user_name','full_name', 'phone_number', 'avatar']));
+                                            res.json(userInfo);
+                                        } else {
+                                            res.json(responseData.create(Const.successFalse, Const.msgFacebookNotSignup, Const.resFacebookNotSignup));
+                                        }
+                                    }
+                                })
+                            }
+                        });
+                    }
+                }
+            );
+        }
     });
 };
 

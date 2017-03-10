@@ -9,10 +9,10 @@ module.exports.connect = function (callback) {
             type: Sequelize.INTEGER,
             primaryKey: true
         },
-        native: {
+        native_user: {
             type: Sequelize.STRING
         },
-        foreign: {
+        foreign_user: {
             type: Sequelize.STRING
         },
         type: {

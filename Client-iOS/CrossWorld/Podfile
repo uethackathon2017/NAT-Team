@@ -19,6 +19,8 @@ target 'CrossWorld' do
   pod 'ImageSlideshow/Kingfisher'
   pod 'AttributedTextView'
   pod 'SwiftDate'
+  pod 'ImagePicker'
+  pod 'CountryPickerSwift'
   
   #Facebook SDK
   pod 'FBSDKCoreKit'
