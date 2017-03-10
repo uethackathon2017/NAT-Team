@@ -1,0 +1,373 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8E31E72C78900C39086 /* AppDelegate.swift */; };
+		ACEFC8F01E72C78900C39086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E41E72C78900C39086 /* Assets.xcassets */; };
+		ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E61E72C78900C39086 /* LaunchScreen.storyboard */; };
+		ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E81E72C78900C39086 /* Main.storyboard */; };
+		ACEFC8F31E72C78900C39086 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8EA1E72C78900C39086 /* Info.plist */; };
+		ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8F41E72C7AE00C39086 /* User.swift */; };
+		ACEFC8F71E72C7C400C39086 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8F61E72C7C400C39086 /* Utils.swift */; };
+		ACEFC8FA1E72C7E700C39086 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8F91E72C7E700C39086 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ACEFC8CD1E72C62A00C39086 /* CrossWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEFC8E21E72C78900C39086 /* CrossWorld-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrossWorld-Bridging-Header.h"; path = "../CrossWorld-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACEFC8E31E72C78900C39086 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		ACEFC8E41E72C78900C39086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		ACEFC8E71E72C78900C39086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACEFC8E91E72C78900C39086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		ACEFC8EA1E72C78900C39086 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		ACEFC8F41E72C7AE00C39086 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ACEFC8F61E72C7C400C39086 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		ACEFC8F91E72C7E700C39086 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACEFC8CA1E72C62A00C39086 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACEFC8C41E72C62A00C39086 = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8CF1E72C62A00C39086 /* CrossWorld */,
+				ACEFC8CE1E72C62A00C39086 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACEFC8CE1E72C62A00C39086 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8CD1E72C62A00C39086 /* CrossWorld.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACEFC8CF1E72C62A00C39086 /* CrossWorld */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8E51E72C78900C39086 /* Base.lproj */,
+				ACEFC8EB1E72C78900C39086 /* Model */,
+				ACEFC8EC1E72C78900C39086 /* Resource */,
+				ACEFC8ED1E72C78900C39086 /* Utils */,
+				ACEFC8EE1E72C78900C39086 /* View */,
+			);
+			path = CrossWorld;
+			sourceTree = "<group>";
+		};
+		ACEFC8E51E72C78900C39086 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8E21E72C78900C39086 /* CrossWorld-Bridging-Header.h */,
+				ACEFC8E31E72C78900C39086 /* AppDelegate.swift */,
+				ACEFC8E61E72C78900C39086 /* LaunchScreen.storyboard */,
+				ACEFC8E81E72C78900C39086 /* Main.storyboard */,
+				ACEFC8EA1E72C78900C39086 /* Info.plist */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		ACEFC8EB1E72C78900C39086 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8F41E72C7AE00C39086 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ACEFC8EC1E72C78900C39086 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8E41E72C78900C39086 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ACEFC8ED1E72C78900C39086 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8F61E72C7C400C39086 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ACEFC8EE1E72C78900C39086 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8F81E72C7DB00C39086 /* Login */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACEFC8F81E72C7DB00C39086 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				ACEFC8F91E72C7E700C39086 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACEFC8CC1E72C62A00C39086 /* CrossWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEFC8DF1E72C62A00C39086 /* Build configuration list for PBXNativeTarget "CrossWorld" */;
+			buildPhases = (
+				ACEFC8C91E72C62A00C39086 /* Sources */,
+				ACEFC8CA1E72C62A00C39086 /* Frameworks */,
+				ACEFC8CB1E72C62A00C39086 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CrossWorld;
+			productName = CrossWorld;
+			productReference = ACEFC8CD1E72C62A00C39086 /* CrossWorld.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACEFC8C51E72C62A00C39086 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Anh Son Le";
+				TargetAttributes = {
+					ACEFC8CC1E72C62A00C39086 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 556LZQ7WUH;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = ACEFC8C81E72C62A00C39086 /* Build configuration list for PBXProject "CrossWorld" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACEFC8C41E72C62A00C39086;
+			productRefGroup = ACEFC8CE1E72C62A00C39086 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACEFC8CC1E72C62A00C39086 /* CrossWorld */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACEFC8CB1E72C62A00C39086 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEFC8F31E72C78900C39086 /* Info.plist in Resources */,
+				ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */,
+				ACEFC8F01E72C78900C39086 /* Assets.xcassets in Resources */,
+				ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACEFC8C91E72C62A00C39086 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEFC8FA1E72C7E700C39086 /* LoginViewController.swift in Sources */,
+				ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */,
+				ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */,
+				ACEFC8F71E72C7C400C39086 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ACEFC8E61E72C78900C39086 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACEFC8E71E72C78900C39086 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ACEFC8E81E72C78900C39086 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACEFC8E91E72C78900C39086 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACEFC8DD1E72C62A00C39086 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACEFC8DE1E72C62A00C39086 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACEFC8E01E72C62A00C39086 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 556LZQ7WUH;
+				INFOPLIST_FILE = CrossWorld/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.NAT.CrossWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrossWorld/CrossWorld-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		ACEFC8E11E72C62A00C39086 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 556LZQ7WUH;
+				INFOPLIST_FILE = CrossWorld/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.NAT.CrossWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrossWorld/CrossWorld-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACEFC8C81E72C62A00C39086 /* Build configuration list for PBXProject "CrossWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEFC8DD1E72C62A00C39086 /* Debug */,
+				ACEFC8DE1E72C62A00C39086 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACEFC8DF1E72C62A00C39086 /* Build configuration list for PBXNativeTarget "CrossWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEFC8E01E72C62A00C39086 /* Debug */,
+				ACEFC8E11E72C62A00C39086 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACEFC8C51E72C62A00C39086 /* Project object */;
+}

@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+use_frameworks!
+
+target 'CrossWorld' do
+
+  pod 'TPKeyboardAvoiding'
+  pod 'Alamofire'
+  pod 'Kingfisher'
+  pod 'EVReflection'
+  pod 'NVActivityIndicatorView'
+  pod 'DropDown'
+  pod 'SwiftMessages'
+  pod 'PopupController'
+  pod 'IBAnimatable'
+  pod 'Bond'
+  pod 'HCSStarRatingView'
+  pod 'ImageSlideshow'
+  pod 'ImageSlideshow/Kingfisher'
+  pod 'AttributedTextView'
+  pod 'SwiftDate'
+
+end
