@@ -27,15 +27,12 @@ RoomHandle.prototype.attach = function (io, socket) {
 				    			console.log(err);
 				    			socket.emit('get-all-room', responseData.create(Const.successFalse, Const.msgError, Const.resError));
 				    		} else {
-				    			console.log(foreignRoom)
 				    			nativeRoom = JSON.stringify(nativeRoom[0]);
 		                    	nativeRoom = JSON.parse(nativeRoom);
 		                    	foreignRoom = JSON.stringify(foreignRoom[0]);
 		                    	foreignRoom = JSON.parse(foreignRoom);
 		                    	friendRoom = JSON.stringify(friendRoom[0]);
 		                    	friendRoom = JSON.parse(friendRoom);
-			               
-			                    console.log(foreignRoom)
 				    			var resData = responseData.create(Const.successTrue, Const.msgGetRoom, Const.resNoErrorCode);
 				    			resData.data = {
 				    				native_room: nativeRoom,

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoCallViewController" customModule="CrossWorld" customModuleProvider="target">
+            <connections>
+                <outlet property="btnDropCall" destination="ItP-LZ-YpM" id="j6O-vZ-OIF"/>
+                <outlet property="btnMute" destination="ETX-GV-9WI" id="xg5-Oy-FIP"/>
+                <outlet property="btnVideo" destination="1VG-fC-eAK" id="Ymo-4y-PMo"/>
+                <outlet property="localView" destination="azZ-Sw-vKL" id="Mf9-sf-aDF"/>
+                <outlet property="remoteView" destination="0Wa-ne-cJ1" id="41p-oz-tjG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wa-ne-cJ1" customClass="RTCEAGLVideoView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrf-9r-Lh5">
+                    <rect key="frame" x="0.0" y="553" width="375" height="114"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETX-GV-9WI" customClass="AnimatableCheckBox" customModule="IBAnimatable">
+                            <rect key="frame" x="9" y="19" width="76" height="76"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="checkedImage" value="call_muteEnable"/>
+                                <userDefinedRuntimeAttribute type="image" keyPath="uncheckedImage" value="call_muteDisable"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VG-fC-eAK" customClass="AnimatableCheckBox" customModule="IBAnimatable">
+                            <rect key="frame" x="274.5" y="19" width="76" height="76"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="checkedImage" value="call_videoEnable"/>
+                                <userDefinedRuntimeAttribute type="image" keyPath="uncheckedImage" value="call_videoDisable"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ItP-LZ-YpM">
+                            <rect key="frame" x="150.5" y="20" width="74" height="74"/>
+                            <state key="normal" image="call_decline"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="1VG-fC-eAK" firstAttribute="centerY" secondItem="Hrf-9r-Lh5" secondAttribute="centerY" id="7P1-61-iRE"/>
+                        <constraint firstItem="ETX-GV-9WI" firstAttribute="centerY" secondItem="Hrf-9r-Lh5" secondAttribute="centerY" id="Wzh-j7-vqH"/>
+                        <constraint firstItem="ItP-LZ-YpM" firstAttribute="centerY" secondItem="Hrf-9r-Lh5" secondAttribute="centerY" id="Ynl-CK-4vh"/>
+                        <constraint firstAttribute="height" constant="114" id="ZuS-VH-9av"/>
+                        <constraint firstItem="ItP-LZ-YpM" firstAttribute="centerX" secondItem="Hrf-9r-Lh5" secondAttribute="centerX" id="k0J-3q-Qhz"/>
+                        <constraint firstItem="1VG-fC-eAK" firstAttribute="centerX" secondItem="Hrf-9r-Lh5" secondAttribute="centerX" multiplier="5/3" id="sca-2l-MAc"/>
+                        <constraint firstItem="ETX-GV-9WI" firstAttribute="centerX" secondItem="Hrf-9r-Lh5" secondAttribute="centerX" multiplier="1/4" id="vQa-9A-puW"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-Sw-vKL" customClass="RTCEAGLVideoView">
+                    <rect key="frame" x="265.5" y="405" width="93.5" height="140"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="azZ-Sw-vKL" secondAttribute="height" multiplier="2:3" id="aQz-I3-GzX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="azZ-Sw-vKL" secondAttribute="trailing" constant="16" id="1Fa-M6-DTp"/>
+                <constraint firstAttribute="bottom" secondItem="0Wa-ne-cJ1" secondAttribute="bottom" id="C2P-J2-za8"/>
+                <constraint firstItem="Hrf-9r-Lh5" firstAttribute="top" secondItem="azZ-Sw-vKL" secondAttribute="bottom" constant="8" id="HYn-14-H3g"/>
+                <constraint firstAttribute="trailing" secondItem="0Wa-ne-cJ1" secondAttribute="trailing" id="NN0-yf-gxT"/>
+                <constraint firstItem="azZ-Sw-vKL" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1/4" id="TrI-6z-XH1"/>
+                <constraint firstAttribute="bottom" secondItem="Hrf-9r-Lh5" secondAttribute="bottom" id="UTN-dn-6b8"/>
+                <constraint firstAttribute="trailing" secondItem="Hrf-9r-Lh5" secondAttribute="trailing" id="WPD-Dg-pP9"/>
+                <constraint firstItem="0Wa-ne-cJ1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="adg-3O-EU6"/>
+                <constraint firstItem="Hrf-9r-Lh5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hgR-hU-v4W"/>
+                <constraint firstItem="0Wa-ne-cJ1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mgc-JY-cUQ"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="call_decline" width="74" height="74"/>
+        <image name="call_muteDisable" width="76" height="76"/>
+        <image name="call_muteEnable" width="74" height="74"/>
+        <image name="call_videoDisable" width="76" height="76"/>
+        <image name="call_videoEnable" width="74" height="74"/>
+    </resources>
+</document>

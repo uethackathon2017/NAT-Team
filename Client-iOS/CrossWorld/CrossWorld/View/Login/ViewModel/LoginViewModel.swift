@@ -16,6 +16,7 @@ class LoginViewModel{
             if isSuccees{
                 if let user = user{
                     User.current = user
+                    DataAccess.shared.saveUser(User.current)
                     complite(true)
                 }else{
                     complite(false)

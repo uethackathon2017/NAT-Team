@@ -10,6 +10,10 @@
 		2E2CD2C07DD80B3E57B74FC2 /* Pods_CrossWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F521D370B99DB0FB27A46F83 /* Pods_CrossWorld.framework */; };
 		46044D961E73AA2400510138 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46044D951E73AA2400510138 /* PlayVideoViewController.swift */; };
 		46044D981E73AA6000510138 /* PlayVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46044D971E73AA6000510138 /* PlayVideoCollectionViewCell.swift */; };
+		463CC3551E73EC9400A28E9F /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463CC3541E73EC9400A28E9F /* DataAccess.swift */; };
+		463CC3571E73EFB200A28E9F /* ConverstaionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463CC3561E73EFB200A28E9F /* ConverstaionViewModel.swift */; };
+		463CC3591E73F4A100A28E9F /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463CC3581E73F4A100A28E9F /* Room.swift */; };
+		463CC35B1E74078200A28E9F /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463CC35A1E74078200A28E9F /* ChatViewModel.swift */; };
 		464EE8B71E72EC7600044C70 /* LeftChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B21E72EC7600044C70 /* LeftChatCell.swift */; };
 		464EE8B81E72EC7600044C70 /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B31E72EC7600044C70 /* RightChatCell.swift */; };
 		464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B51E72EC7600044C70 /* MessageViewController.swift */; };
@@ -35,6 +39,8 @@
 		AC1F13141E73A9A200595C17 /* OutCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F13121E73A9A200595C17 /* OutCallViewController.swift */; };
 		AC1F13151E73A9A200595C17 /* OutCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1F13131E73A9A200595C17 /* OutCallViewController.xib */; };
 		AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */; };
+		AC71938F1E73E99B00520F5D /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71938D1E73E99B00520F5D /* VideoCallViewController.swift */; };
+		AC7193901E73E99B00520F5D /* VideoCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC71938E1E73E99B00520F5D /* VideoCallViewController.xib */; };
 		ACB47C3F1E72D2D10059E114 /* ASTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C3E1E72D2D10059E114 /* ASTextField.swift */; };
 		ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */; };
 		ACB47C471E72EBD00059E114 /* AppAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C461E72EBD00059E114 /* AppAccess.swift */; };
@@ -83,6 +89,10 @@
 		3EC5D6D859E30ED5168ADDCD /* Pods-CrossWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossWorld/Pods-CrossWorld.debug.xcconfig"; sourceTree = "<group>"; };
 		46044D951E73AA2400510138 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
 		46044D971E73AA6000510138 /* PlayVideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		463CC3541E73EC9400A28E9F /* DataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
+		463CC3561E73EFB200A28E9F /* ConverstaionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverstaionViewModel.swift; sourceTree = "<group>"; };
+		463CC3581E73F4A100A28E9F /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		463CC35A1E74078200A28E9F /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		464EE8B21E72EC7600044C70 /* LeftChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftChatCell.swift; sourceTree = "<group>"; };
 		464EE8B31E72EC7600044C70 /* RightChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
 		464EE8B51E72EC7600044C70 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +118,8 @@
 		AC1F13121E73A9A200595C17 /* OutCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutCallViewController.swift; sourceTree = "<group>"; };
 		AC1F13131E73A9A200595C17 /* OutCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutCallViewController.xib; sourceTree = "<group>"; };
 		AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
+		AC71938D1E73E99B00520F5D /* VideoCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
+		AC71938E1E73E99B00520F5D /* VideoCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCallViewController.xib; sourceTree = "<group>"; };
 		ACB47C3E1E72D2D10059E114 /* ASTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTextField.swift; sourceTree = "<group>"; };
 		ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDetailViewController.swift; sourceTree = "<group>"; };
 		ACB47C461E72EBD00059E114 /* AppAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAccess.swift; sourceTree = "<group>"; };
@@ -241,6 +253,7 @@
 		464EE8B61E72EC7600044C70 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				463CC35A1E74078200A28E9F /* ChatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -274,6 +287,7 @@
 		468827F71E7308DA005514DF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				463CC3561E73EFB200A28E9F /* ConverstaionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -299,6 +313,7 @@
 			children = (
 				468828011E730986005514DF /* Networks */,
 				468828071E730986005514DF /* TDUtils.swift */,
+				463CC3541E73EC9400A28E9F /* DataAccess.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -425,6 +440,15 @@
 				AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */,
 			);
 			path = LoginDetail;
+			sourceTree = "<group>";
+		};
+		AC71938C1E73E96C00520F5D /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				AC71938D1E73E99B00520F5D /* VideoCallViewController.swift */,
+				AC71938E1E73E99B00520F5D /* VideoCallViewController.xib */,
+			);
+			path = VideoCall;
 			sourceTree = "<group>";
 		};
 		ACB47C3D1E72D2C60059E114 /* TextField */ = {
@@ -679,6 +703,7 @@
 			children = (
 				464EE8BC1E72ECE000044C70 /* Messenger.swift */,
 				ACEFC8F41E72C7AE00C39086 /* User.swift */,
+				463CC3581E73F4A100A28E9F /* Room.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -708,6 +733,7 @@
 		ACEFC8EE1E72C78900C39086 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC71938C1E73E96C00520F5D /* VideoCall */,
 				46044D911E73AA1200510138 /* PlayVideo */,
 				AC1F13111E73A98900595C17 /* InCall */,
 				AC1F13101E73A97B00595C17 /* OutCall */,
@@ -835,6 +861,7 @@
 				ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */,
 				ACB47C591E730AB30059E114 /* CountryPickerViewController.xib in Resources */,
 				ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */,
+				AC7193901E73E99B00520F5D /* VideoCallViewController.xib in Resources */,
 				464EE8BB1E72EC8300044C70 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,6 +940,7 @@
 				ACB47C821E73624A0059E114 /* LessonsViewController.swift in Sources */,
 				ACB47C781E7333460059E114 /* HomeDetailTableViewCell.swift in Sources */,
 				46D6D3181E733D6F002A9018 /* LogoutTableViewCell.swift in Sources */,
+				463CC3591E73F4A100A28E9F /* Room.swift in Sources */,
 				ACEFC8FF1E72C9DD00C39086 /* AppViewController.swift in Sources */,
 				ACB47C761E732DF10059E114 /* HomeViewModel.swift in Sources */,
 				4688280A1E730986005514DF /* Domain.swift in Sources */,
@@ -928,6 +956,7 @@
 				ACB47C7C1E7347B90059E114 /* PeopleTableViewCell.swift in Sources */,
 				ACEFC8FD1E72C99500C39086 /* AppDefine.swift in Sources */,
 				ACB47C4F1E72F0CA0059E114 /* AppError.swift in Sources */,
+				463CC3551E73EC9400A28E9F /* DataAccess.swift in Sources */,
 				AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */,
 				ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */,
 				ACB639771E73E15B00B47F38 /* ARDMessageResponse.m in Sources */,
@@ -935,6 +964,7 @@
 				468827F91E7308DA005514DF /* ConversationViewController.swift in Sources */,
 				ACB47C841E73634A0059E114 /* LessonViewModel.swift in Sources */,
 				ACB47C861E7364E80059E114 /* LessonTableViewCell.swift in Sources */,
+				AC71938F1E73E99B00520F5D /* VideoCallViewController.swift in Sources */,
 				AC1F13141E73A9A200595C17 /* OutCallViewController.swift in Sources */,
 				ACB47C5E1E7315140059E114 /* LanguageViewController.swift in Sources */,
 				ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */,
@@ -954,7 +984,9 @@
 				468828091E730986005514DF /* APIRequest.swift in Sources */,
 				ACB47C581E730AB30059E114 /* CountryPickerViewController.swift in Sources */,
 				46D6D3171E733D6F002A9018 /* AvatarTableViewCell.swift in Sources */,
+				463CC3571E73EFB200A28E9F /* ConverstaionViewModel.swift in Sources */,
 				ACB6397C1E73E15B00B47F38 /* RTCICECandidate+JSON.m in Sources */,
+				463CC35B1E74078200A28E9F /* ChatViewModel.swift in Sources */,
 				464EE8BD1E72ECE000044C70 /* Messenger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -62,12 +62,29 @@
     Const.msgConfigError = 'Error while getting config';
     Const.msgConfigIncorrectId = 'Incorrect Id';
 
+    // New user
+    Const.msgNewUser = 'New user success';
+
     // get room
     Const.msgGetRoom = 'get room';
 
     // socket token
     Const.msgTokenSuccess = "Token success";
     Const.msgNotValidToken = "Not valid token";
+
+    // send message
+    Const.msgSendMessage = "Send message";
+
+    // get History 
+    Const.msgGetHistory = " Get history success";
+
+    // call
+    Const.msgAcceptCall = "Accept";
+    Const.msgTimeoutCall = "Timeout call";
+    Const.msgDelineCall = "Decline call";
+
+    Const.resTimeotCall = 152;
+    Const.resDeclineCall = 151;
 
     // Exports ----------------------------------------------
     module["exports"] = Const;

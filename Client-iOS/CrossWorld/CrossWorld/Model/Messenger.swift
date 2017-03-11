@@ -7,37 +7,26 @@
 //
 
 import Foundation
+import EVReflection
 
-class Messenger {
-    
-    var id: String?
+class Messenger : EVObject{
+    var call_status: NSNumber?
+    var chat_message_id: NSNumber?
+    var image: String?
+    var sender: String?
     var content: String?
-    var timeStamp: Double?
+    var time: String?
+    
     var wasRead = false
     var wasSend = false
     var wasSendFail = false
     var wasWritebyMe = true
     
-    init(){
-        
+    override func propertyMapping() -> [(keyInObject: String?, keyInResource: String?)] {
+        return [("content", "message")]
     }
-    
-    init(content: String, fromMe: Bool = true){
-        self.wasRead = false
-        self.wasWritebyMe = true
-        self.content = content
-    }
-    
-    func fakeListMessage() -> [Messenger]{
-        var list = [Messenger]()
-        for item in 1...16 {
-            let mes = Messenger(content: "\(item) unexpectedly found nil while unwrapping an Optional value \(item)")
-            
-            if item % 2 == 0 {
-                mes.wasWritebyMe = false
-            }
-            list.append(mes)
-        }
-        return list
-    }
+}
+
+class HistoryMessage: EVObject{
+    var history : [Messenger]?
 }

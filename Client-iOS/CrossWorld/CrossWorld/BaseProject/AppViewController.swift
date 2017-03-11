@@ -240,5 +240,9 @@ extension AppViewController {
             PopupCustomOption.movesAlongWithKeyboard(true),
             PopupCustomOption.layout(PopupController.PopupLayout.center),
             ]).show(callVC)
+        _ = callVC.popup.didCloseHandler { [weak self] (_) in
+            let videoVC = VideoCallViewController(nibName: "VideoCallViewController", bundle: nil)
+            self?.navigationController?.present(videoVC, animated: true, completion: nil)
+        }
     }
 }

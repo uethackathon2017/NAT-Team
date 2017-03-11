@@ -139,20 +139,39 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 }
 
 - (void)orientationChanged:(NSNotification *)notification {
+//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+//    if (UIDeviceOrientationIsLandscape(orientation) || UIDeviceOrientationIsPortrait(orientation)) {
+//        //Remove current video track
+//        RTCMediaStream *localStream = _peerConnection.localStreams[0];
+//        [localStream removeVideoTrack:localStream.videoTracks[0]];
+//        
+//        RTCVideoTrack *localVideoTrack = [self createLocalVideoTrack];
+//        if (localVideoTrack) {
+//            [localStream addVideoTrack:localVideoTrack];
+//            [_delegate appClient:self didReceiveLocalVideoTrack:localVideoTrack];
+//        }
+//        [_peerConnection removeStream:localStream];
+//        [_peerConnection addStream:localStream];
+//    }
+    
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (UIDeviceOrientationIsLandscape(orientation) || UIDeviceOrientationIsPortrait(orientation)) {
+    if (UIDeviceOrientationIsLandscape(orientation) || UIDeviceOrientationIsPortrait(orientation))
+    {
         //Remove current video track
         RTCMediaStream *localStream = _peerConnection.localStreams[0];
-        [localStream removeVideoTrack:localStream.videoTracks[0]];
+        RTCVideoTrack *localVideoTrack = localStream.videoTracks[0];
+        [localStream removeVideoTrack:localVideoTrack];
         
-        RTCVideoTrack *localVideoTrack = [self createLocalVideoTrack];
-        if (localVideoTrack) {
+        //RTCVideoTrack *localVideoTrack = [self createLocalVideoTrack];
+        if (localVideoTrack)
+        {
             [localStream addVideoTrack:localVideoTrack];
             [_delegate appClient:self didReceiveLocalVideoTrack:localVideoTrack];
         }
         [_peerConnection removeStream:localStream];
         [_peerConnection addStream:localStream];
     }
+    
 }
 
 

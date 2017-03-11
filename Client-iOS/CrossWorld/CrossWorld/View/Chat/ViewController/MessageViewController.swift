@@ -21,15 +21,16 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
 
     
     // MARK: - Declare
-    var listMessenger = Messenger().fakeListMessage()
+  
     var firstOpen = true
     var pathSequece = true
     var isFriend = true
-
+    var room = RoomDetail()
     
     // MARK: - Define
     let refreshControl = UIRefreshControl()
     let imagePickerController = ImagePickerController()
+    var viewModel = ChatViewModel()
     
     // MARK: - Setup
     func setup(){
@@ -41,17 +42,40 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         NotificationCenter.default.addObserver(self, selector:#selector(MessageViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    func getData(){
+        self.startAnimating()
+        viewModel.sendGetMessage(room_id: "\(room.room_id!.intValue)", page: "1") {
+            
+        }
+        
+        viewModel.onGetMessage { [weak self] (isSuccess) in
+            self?.stopAnimating()
+            if isSuccess{
+                print(self?.viewModel.listMessenger.count)
+                    self?.tbMessage.reloadData()
+//                    self.tbMessage.scrollToRow(at: IndexPath(row: self.viewModel.listMessenger.count - 1, section: 0), at: UITableViewScrollPosition.middle, animated: false)
+            }else{
+                print("fail")
+            }
+        }
+    }
+    
     // MARK: - Lifecircle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initTableMessage()
         setup()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+//        if self.viewModel.listMessenger.count != 0 {
+//            self.tbMessage.scrollToRow(at: IndexPath(row: self.viewModel.listMessenger.count - 1, section: 0), at: UITableViewScrollPosition.middle, animated: false)
+//        }
+        getData()
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -59,6 +83,11 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         super.viewWillDisappear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    deinit {
+        self.viewModel = ChatViewModel()
+        print("====denit")
     }
     
     override func setupViewController() {
@@ -79,7 +108,7 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         tbMessage.separatorColor = UIColor.clear
         
         //pull to refresh tableView
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSMutableAttributedString().normal("Load more", color: AppDefine.AppColor.pink)
         refreshControl.addTarget(self, action: #selector(MessageViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         tbMessage.addSubview(refreshControl)
     }
@@ -105,32 +134,35 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         
         UIView.animate(withDuration: 0.3, animations: {
             self.constraintViewBottom.constant = keyboardFrame.size.height
-            self.constrainTableViewBottom.constant = self.constrainTableViewBottom.constant + keyboardFrame.size.height
+            self.constrainTableViewBottom.constant = keyboardFrame.size.height
             self.view.layoutIfNeeded()
             
-        }, completion: { (completion) in
-            if self.listMessenger.count > 0{
-                self.tbMessage.scrollToRow(at: IndexPath(row: self.listMessenger.count - 1, section: 0), at: UITableViewScrollPosition.none, animated: true);
+        }, completion: { [weak self] (completion) in
+            guard self != nil else {
+                return
+            }
+            if self!.viewModel.listMessenger.count > 0{
+                self!.tbMessage.scrollToRow(at: IndexPath(row: self!.viewModel.listMessenger.count - 1, section: 0), at: UITableViewScrollPosition.none, animated: true);
             }
         })
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        UIView.animate(withDuration: 0.25, animations: { () -> Void in
-            self.constraintViewBottom.constant = 0;
-            self.constrainTableViewBottom.constant = 60
-            self.view.layoutIfNeeded();
-        })
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                self.constraintViewBottom.constant = 0;
+                self.constrainTableViewBottom.constant = 0
+                self.view.layoutIfNeeded();
+            })
+        }
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //        self.tvMessage.resignFirstResponder()
-    }
+
     
     @IBAction func btnSendClick(_ sender: AnyObject) {
         
-        let mess = Messenger(content: self.tvMessage.text)
-        self.listMessenger.append(mess)
+        let mess = Messenger()
+        mess.content = self.tvMessage.text
+        self.viewModel.listMessenger.append(mess)
         self.tbMessage.reloadData()
         sentNewMessage(tvMessage.text)
         
@@ -138,26 +170,24 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         if !self.tvMessage.text.isEmpty {
             self.tvMessage.text = nil
             changeSizeTextViewInput()
-            var row = 0
-            if self.listMessenger.count != 0 {
-                row = self.listMessenger.count - 1
-            }
-            self.tbMessage.scrollToRow(at: IndexPath.init(row: row, section: 0), at: UITableViewScrollPosition.bottom, animated: true);
         }
     }
+    
     @IBAction func btnFileClick(_ sender: AnyObject) {
         
         self.present(imagePickerController, animated: true, completion: nil)
 
     }
+    
     // MARK: - UITextView Delegate
     // MARK: - UITableView Delegate, Datasource Methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listMessenger.count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    //        return 61
-    //    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.listMessenger.count
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? LeftChatCell{
@@ -172,7 +202,7 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = listMessenger[indexPath.row]
+        let item = viewModel.listMessenger[indexPath.row]
         if !item.wasWritebyMe {
             let leftCell = tableView.dequeueReusableCell(withIdentifier: "LeftChatCell", for: indexPath) as! LeftChatCell
             leftCell.lbReceiveMsg.text = item.content

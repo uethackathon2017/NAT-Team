@@ -24,7 +24,7 @@ class HomeViewController: AppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.newClient()
         // Do any additional setup after loading the view.
     }
     

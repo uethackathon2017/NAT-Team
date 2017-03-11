@@ -19,16 +19,33 @@ class ConversationViewController: AppViewController, UITableViewDelegate, UITabl
     
     
     // MARK: - Define
-    
+    let viewModel = ConverstaionViewModel()
     
     // MARK: - Setup
     
+    func getData(){
+        self.startAnimating()
+        viewModel.getData { (isSuccess) in
+            self.stopAnimating()
+            
+            if isSuccess{
+                self.tbConverstation.reloadData()
+            }
+        }
+    }
     
     // MARK: - Lifecircle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getData()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.reloadData()
     }
     
     override func setupViewController() {
@@ -44,8 +61,7 @@ class ConversationViewController: AppViewController, UITableViewDelegate, UITabl
         super.setupAction()
         
         _ = segment.reactive.controlEvents(.valueChanged).observeNext {
-            let index = self.segment.selectedSegmentIndex
-            print(index)
+            self.tbConverstation.reloadData()
         }
     }
 
@@ -78,7 +94,25 @@ class ConversationViewController: AppViewController, UITableViewDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        guard viewModel.room != nil else {
+            return 0
+        }
+        
+        switch segment.selectedSegmentIndex {
+        case 0:
+            
+            return viewModel.room?.native_room?.count ?? 0
+            
+        case 1:
+            return viewModel.room?.foreign_room?.count ?? 0
+            
+        case 2:
+            return viewModel.room?.friend_room?.count ?? 0
+            
+        default:
+            return 0
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,7 +139,16 @@ class ConversationViewController: AppViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationTableViewCell", for: indexPath) as? ConversationTableViewCell {
-            cell.imgPhoto.image = #imageLiteral(resourceName: "TGUserInfo")
+            if let item = getRoomDetail(index: indexPath.row){
+                if let avt = item.avatar{
+                    cell.imgPhoto.kf.setImage(with: URL(string: avt))
+                }
+                
+                cell.lbName.text = item.full_name
+                cell.lbLastMess.text = item.message
+                
+            }
+            
             return cell
         }
         return UITableViewCell()
@@ -118,12 +161,48 @@ class ConversationViewController: AppViewController, UITableViewDelegate, UITabl
     // MARK: - TableViewAction
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: AppDefine.Segue.conversationToChat, sender: nil)
+        
+        self.performSegue(withIdentifier: AppDefine.Segue.conversationToChat, sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //
     }
 
+    func getRoomDetail(index: Int) -> RoomDetail?{
+        guard viewModel.room != nil else {
+            return nil
+        }
+        
+        switch segment.selectedSegmentIndex {
+        case 0:
+            
+            return (viewModel.room?.native_room?[index])
+            
+        case 1:
+            return (viewModel.room?.foreign_room?[index])
+            
+        case 2:
+            return (viewModel.room?.friend_room?[index])
+            
+        default:
+            return nil
+            
+        }
 
+    }
+
+}
+extension ConversationViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == AppDefine.Segue.conversationToChat{
+            if let des = segue.destination as? MessageViewController{
+                if let index = sender as? Int {
+                    if let room = getRoomDetail(index: index) {
+                        des.room = room
+                    }
+                }
+            }
+        }
+    }
 }

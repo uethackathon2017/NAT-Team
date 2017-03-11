@@ -20,4 +20,8 @@ class HomeViewModel {
         CellDescription(title: "Chat với người bản xứ", image: "home_chat"),
         CellDescription(title: "Kết quả học tập", image: "home_resource")
     ]
+    
+    func newClient(){
+        SocketRequest.share.login()
+    }
 }

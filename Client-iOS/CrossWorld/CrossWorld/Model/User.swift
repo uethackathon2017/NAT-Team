@@ -8,6 +8,7 @@
 
 import UIKit
 import EVReflection
+import SwiftDate
 
 class User: EVObject {
     
@@ -27,3 +28,4 @@ class User: EVObject {
     var user_id: String?
     var token: String?
 }
+

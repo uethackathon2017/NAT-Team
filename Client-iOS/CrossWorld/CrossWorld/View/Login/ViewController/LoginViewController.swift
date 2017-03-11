@@ -31,6 +31,10 @@ class LoginViewController: AppViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         creatFBLoginButton()
 
+        if let user = DataAccess.shared.getUser(){
+            User.current = user
+            self.performSegue(withIdentifier: AppDefine.Segue.loginToHome, sender: nil)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -103,6 +107,7 @@ class LoginViewController: AppViewController, FBSDKLoginButtonDelegate {
             self.stopAnimating()
             if isSuccess {
                 User.current = user!
+                DataAccess.shared.saveUser(User.current)
                 self.performSegue(withIdentifier: AppDefine.Segue.loginToHome, sender: nil)
             }
         }, handleNotActive: {
