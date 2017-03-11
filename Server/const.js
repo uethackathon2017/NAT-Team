@@ -82,7 +82,9 @@
     Const.msgAcceptCall = "Accept";
     Const.msgTimeoutCall = "Timeout call";
     Const.msgDelineCall = "Decline call";
+    Const.msgReceiverNotFound = "Receiver not found";
 
+    Const.resReceiverNotFound = 150;
     Const.resTimeotCall = 152;
     Const.resDeclineCall = 151;
 

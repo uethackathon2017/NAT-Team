@@ -9,7 +9,7 @@
 import Foundation
 
 class Domain{
-    static let IP = "http://10.10.215.53:3000/"
+    static let IP = "http://172.20.10.7:3000/"
     
     static let DOAMIN_SOCKET = IP
     static let DOAMIN_API = IP + ":8443"
@@ -17,7 +17,7 @@ class Domain{
     static let DOMAIN_HTTPS = "https://" + DOAMIN_API
     static let DOMAIN_URL = IP + "api/"
     
-    static let URL_LOGIN = DOMAIN_URL + "/login"
+    static let URL_LOGIN = DOMAIN_URL + "login"
     
     static let URL_REGISTER = DOMAIN_URL + "/register"
     static let URL_VETIFY = DOMAIN_URL + "/customer/register/verify"

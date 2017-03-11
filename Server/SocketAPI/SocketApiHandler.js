@@ -3,7 +3,6 @@ var mysql = require('mysql');
 var Const = require('../const');
 var responseData = require('../models/responseData')
 global.clients = [];
-
 var SocketApiHandler = {
     io: null,
     nsp: null,
@@ -16,22 +15,27 @@ var SocketApiHandler = {
             console.log('New connection');
 
             socket.on('new-user', function (data, callback) {
-                conn = mysql.createConnection(db);
+                var conn = mysql.createConnection(db);
                 conn.connect();
 
-                conn.query('SELECT room_id FROM room WHERE (native_user || foreign_user) = ?', [data.user_id], function (err, result) {
+                conn.query('SELECT room_id FROM room WHERE native_user=? or foreign_user=?', [data.user_id, data.user_id], function (err, result) {
                     if (err) {
                         console.log(err);
                         socket.emit('new-user', responseData.create(Const.successFalse, Const.msgError, Const.resError));
                     } else {
-                        while (Object.keys(io.sockets.adapter.sids[socket.id]).length-1 !== result.length) {
-                            for (var i = 0; i < result.length; i++) {
-                                socket.join(result[i].room_id);
+                        try {
+                            while (Object.keys(io.sockets.adapter.sids[socket.id]).length-1 !== result.length) {
+                                for (var i = 0; i < result.length; i++) {
+                                    socket.join(result[i].room_id);
+                                }
                             }
+                            socket.user_id = data.user_id;
+                            socket.status = 0;
+                            clients.push(socket);
+                        } catch(err) {
+                            console.log(err);
+                            socket.disconnect(true);
                         }
-                        socket.user_id = data.user_id;
-                        socket.status = 0;
-                        clients.push(socket);
                         if (callback) callback(1);
                         require('./RoomHandle').attach(io, socket);
                         require('./ChatHandle').attach(io, socket);

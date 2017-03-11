@@ -16,7 +16,7 @@ class SocketEvent {
     static let GET_ALL_ROOM = "get-all-room"
     static let CHAT_ROOM_DETAIL = "chat-history"
     
-    static let DRIVER_INFO = "driver-detail"
+    static let SEND_MESSAGE = "send-message"
     static let CANCLE_TRIP = "cancel_booking"
     static let BOOKING_RESPONSE = "booking" // listen when did booking complite
     static let DRIVER_COMING_LOCATIN = "coming-coordinate"// listen when start trip
@@ -29,7 +29,7 @@ class SocketRequest {
     static let share = SocketRequest()
     var listEventOnListen = [String]()
     
-    let appSocket = SocketIOClient(socketURL: URL(string: Domain.DOAMIN_SOCKET)!, config: [.log(false), .forcePolling(true), .reconnects(true) ])
+    let appSocket = SocketIOClient(socketURL: URL(string: Domain.DOAMIN_SOCKET)!, config: [.log(true), .forcePolling(true), .reconnects(true), .doubleEncodeUTF8(true) ])
     
     func onError()  {
         appSocket.on("error") { (data, ack) in
@@ -164,16 +164,8 @@ class SocketRequest {
         self.onReconnectAttempt()
         self.onConnect()
         self.appSocket.connect()
-        connectToSocketToEmit {
-            let param : NSDictionary = [
-                "user_id": User.current.user_id!
-            ]
-            self.appSocket.emitWithAck(SocketEvent.NEW_CLIENT, param).timingOut(after: 5, callback: { (data) in
-                print(data)
-            })
-        }
         
-        self.appSocket.on("reconnect", callback: { (res, ack) in
+        self.appSocket.on("connect", callback: { (res, ack) in
             print("Resent new client")
             self.connectToSocketToEmit{
                 let param : NSDictionary = [
@@ -181,11 +173,25 @@ class SocketRequest {
                 ]
                 
                 self.appSocket.emitWithAck(SocketEvent.NEW_CLIENT, param).timingOut(after: 5, callback: { (data) in
-                    print(data)
+                    print("new client \(data)")
                 })
-
+                
             }
         })
+        
+//        self.appSocket.on("reconnect", callback: { (res, ack) in
+//            print("Resent new client")
+//            self.connectToSocketToEmit{
+//                let param : NSDictionary = [
+//                    "user_id": User.current.user_id!
+//                ]
+//                
+//                self.appSocket.emitWithAck(SocketEvent.NEW_CLIENT, param).timingOut(after: 5, callback: { (data) in
+//                    print("new client \(data)")
+//                })
+//
+//            }
+//        })
     }
     
     func sendGetAllRoom( handle: (()->())?){

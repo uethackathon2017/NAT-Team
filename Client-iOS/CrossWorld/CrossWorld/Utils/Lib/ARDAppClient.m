@@ -158,18 +158,22 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
     if (UIDeviceOrientationIsLandscape(orientation) || UIDeviceOrientationIsPortrait(orientation))
     {
         //Remove current video track
-        RTCMediaStream *localStream = _peerConnection.localStreams[0];
-        RTCVideoTrack *localVideoTrack = localStream.videoTracks[0];
-        [localStream removeVideoTrack:localVideoTrack];
+        if (_peerConnection.localStreams.count) {
+            RTCMediaStream *localStream = _peerConnection.localStreams[0];
+            if (localStream.videoTracks.count) {
+                RTCVideoTrack *localVideoTrack = localStream.videoTracks[0];
+                [localStream removeVideoTrack:localVideoTrack];
+                if (localVideoTrack)
+                {
+                    [localStream addVideoTrack:localVideoTrack];
+                    [_delegate appClient:self didReceiveLocalVideoTrack:localVideoTrack];
+                }
+                [_peerConnection removeStream:localStream];
+                [_peerConnection addStream:localStream];
+            }
+        }
         
         //RTCVideoTrack *localVideoTrack = [self createLocalVideoTrack];
-        if (localVideoTrack)
-        {
-            [localStream addVideoTrack:localVideoTrack];
-            [_delegate appClient:self didReceiveLocalVideoTrack:localVideoTrack];
-        }
-        [_peerConnection removeStream:localStream];
-        [_peerConnection addStream:localStream];
     }
     
 }

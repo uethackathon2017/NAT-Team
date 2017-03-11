@@ -36,7 +36,28 @@ class VideoCallViewController: AppViewController {
     
     override func setupAction() {
         _ = self.btnDropCall.reactive.tap.observeNext { [weak self] in
+            self?.disconnect()
             self?.dismiss(animated: true, completion: nil)
+        }
+        
+        _ = self.btnMute.reactive.tap.observeNext { [weak self] in
+            if let clearSelf = self {
+                if clearSelf.btnMute.checked {
+                    clearSelf.client?.muteAudioIn()
+                } else {
+                    clearSelf.client?.unmuteAudioIn()
+                }
+            }
+        }
+        
+        _ = self.btnVideo.reactive.tap.observeNext { [weak self] in
+            if let clearSelf = self {
+                if clearSelf.btnVideo.checked {
+                    clearSelf.client?.muteVideoIn()
+                } else {
+                    clearSelf.client?.unmuteVideoIn()
+                }
+            }
         }
     }
     
@@ -116,11 +137,12 @@ extension VideoCallViewController: ARDAppClientDelegate, RTCEAGLVideoViewDelegat
         //        RTCEAGLVideoViewDelegate provides notifications on video frame dimensions
         remoteView.delegate = self
         localView.delegate = self
+        client?.enableSpeaker()
     }
     
     func connectToChatRoom(){
         client?.serverHostUrl = "https://apprtc.appspot.com"
-        client?.connectToRoom(withId: "696969", options: nil)
+        client?.connectToRoom(withId: "2468101", options: nil)
     }
     
     func remoteDisconnected(){

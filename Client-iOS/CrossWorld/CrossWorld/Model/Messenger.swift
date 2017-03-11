@@ -22,6 +22,8 @@ class Messenger : EVObject{
     var wasSendFail = false
     var wasWritebyMe = true
     
+    var room_id: NSNumber?
+    
     override func propertyMapping() -> [(keyInObject: String?, keyInResource: String?)] {
         return [("content", "message")]
     }

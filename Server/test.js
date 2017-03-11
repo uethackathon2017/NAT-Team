@@ -1,3 +1,3 @@
-var t  = new Date().getTime();
 
-console.log(t);
+var d = ''
+console.log(d.length);

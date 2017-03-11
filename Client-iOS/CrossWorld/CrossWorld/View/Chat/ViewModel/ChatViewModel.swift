@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class ChatViewModel{
     
@@ -42,11 +43,44 @@ class ChatViewModel{
         }
     }
     
-    //        SocketRequest.share.onGetRoomDetail { [weak self] (isSuccess, data) in
-    //            guard self != nil else {
-    //                complite(false)
-    //                return
-    //            }
-    //
+    func sendNewMessage(room_id: String, meesage: String, complite: @escaping (_ isSuccess: Bool)->Void){
+        let param: Parameters = [
+            "room_id" : room_id,
+            "user_id": User.current.user_id ?? "",
+            "message": meesage,
+            ]
 
+        SocketRequest.share.appSocket.emitWithAck(SocketEvent.SEND_MESSAGE, param).timingOut(after: 5) { (data) in
+            if let data = data.first as? Int{
+                if data == 1 {
+                    complite(true)
+                }else{
+                    complite(false)
+                }
+            }else{
+                complite(false)
+            }
+        }
+    }
+    
+    func onGetNewMessage(complite: @escaping (_ isComplite: Bool)->Void){
+        SocketRequest.share.appSocket.off(SocketEvent.SEND_MESSAGE)
+        SocketRequest.share.appSocket.on(SocketEvent.SEND_MESSAGE) { [weak self] (data, ack) in
+            if let data = data.first as? NSDictionary{
+                let res = ResObject(dictionary: data)
+                if let data = res.data{
+                    let room = Messenger(dictionary: data)
+                    self?.listMessenger.append(room)
+                    complite(true)
+                }else{
+                    complite(false)
+                }
+            }else{
+                complite(false)
+            }
+        }
+    }
 }
+
+
+

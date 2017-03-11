@@ -38,7 +38,7 @@ RoomHandle.prototype.attach = function (io, socket) {
 				    				native_room: nativeRoom,
 				    				foreign_room: foreignRoom,
 				    				friend_room: friendRoom
-				    			}
+				    			};
 				    			socket.emit('get-all-room', resData);
 				    		}
 				    		conn.end();
@@ -47,6 +47,23 @@ RoomHandle.prototype.attach = function (io, socket) {
 		    	})
     		}
     	})
+    });
+
+    socket.on('get-random-room', function (data) {
+        conn = mysql.createConnection(db);
+        conn.connect();
+        conn.query('call getRandomRoom(?)', [data.user_id], function(err, result) {
+            if(err) {
+                console.log(err);
+                socket.emit('get-all-room', responseData.create(Const.successFalse, Const.msgError, Const.resError));
+            } else {
+                var resData = responseData.create(Const.successTrue, Const.msgGetRoom, Const.resNoErrorCode);
+                resData.data = {
+                    random: JSON.parse(JSON.stringify(result[0]))
+                };
+                socket.emit('get-all-room', resData);
+            }
+        })
     })
 
 };

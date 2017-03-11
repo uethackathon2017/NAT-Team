@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Test</title>
+  <title>client 2</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font: 13px Helvetica, Arial; }
@@ -16,58 +16,37 @@
 <body>
 <ul id="messages"></ul>
 <form id="form" action="">
-  <input id="m" autocomplete="off" /><button>call</button>
+  <input id="m" autocomplete="off" /><button>accept</button>
 </form>
-<form  id="form2" action="">
+<form id="form2" action="">
   <input id="m2" autocomplete="off" /><button>cancel</button>
-</form>
-<form  id="form3" action="">
-  <input id="m3" autocomplete="off" /><button>chat</button>
 </form>
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     var socket = io();
-
-    socket.emit('new-user', {user_id: 'aAblLBAV4K'}, function(d){
+    socket.emit('new-user', {user_id: 'B7I745Js5T'}, function(d){
         $('#messages').append($('<li>').text(JSON.stringify(d)));
     })
 
-    // $('form').submit(function () {
-    //     socket.emit('get-all-room', {user_id: 'pzqYuubhdW'});
-    //     $('#m').val('');
-    //     return false;
-    // });
-
-    $('#form3').submit(function () {
-        socket.emit('send-message', 
-            {
-                user_id: 'aAblLBAV4K',
-                message: $('#m3').val(),
-                room_id: 6
-        }, function(){});
-        $('#m3').val('');
-        return false;
-    });
-
     $('#form').submit(function () {
-        socket.emit('call', {
-                user_id: 'aAblLBAV4K',
-                receiver_id: 'B7I745Js5T',
-                room_id: 1,
-            }, 
-            function(){});
+        socket.emit('answer', 
+            {
+                user_id: 'B7I745Js5T',
+                accept: 1,
+                room_id: 1
+        });
         $('#m').val('');
         return false;
     });
 
     $('#form2').submit(function () {
-        socket.emit('cancel-call', {
-                user_id: 'aAblLBAV4K',
-                receiver_id: 'B7I745Js5T',
-                room_id: 1,
-            }, 
-            function(){});
+        socket.emit('answer', 
+            {
+                user_id: 'B7I745Js5T',
+                accept: 0,
+                room_id: 1
+        });
         $('#m').val('');
         return false;
     });
@@ -76,15 +55,15 @@
         $('#messages').append($('<li>').text(JSON.stringify(msg)));
     });
 
-    socket.on('get-all-room', function(msg){
-        $('#messages').append($('<li>').text(JSON.stringify(msg)));
-    });
-
-    socket.on('send-message', function(msg){
+    socket.on('cancel-call', function(msg){
         $('#messages').append($('<li>').text(JSON.stringify(msg)));
     });
 
     socket.on('answer', function(msg){
+        $('#messages').append($('<li>').text(JSON.stringify(msg)));
+    });
+
+    socket.on('send-message', function(msg){
         $('#messages').append($('<li>').text(JSON.stringify(msg)));
     });
 
