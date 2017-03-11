@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="btnAnswer" destination="Stl-Q6-bE2" id="FAH-Ib-leC"/>
                 <outlet property="btnEndCall" destination="gqJ-n0-F8f" id="5cn-7G-5St"/>
+                <outlet property="centerBtnAnswerConstraint" destination="NU8-2y-Htf" id="0YV-PA-fjk"/>
+                <outlet property="centerBtnEndConstraint" destination="Qu2-Wh-Iaf" id="Yc7-Bb-GWO"/>
                 <outlet property="imgAvatar" destination="Sns-OP-w3E" id="MBd-mk-2Se"/>
                 <outlet property="lblName" destination="5u2-mP-E9r" id="upY-KC-Whd"/>
                 <outlet property="lblTime" destination="NgU-gH-8Et" id="nH2-bp-6TZ"/>
@@ -32,24 +34,15 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-H9-zCp" customClass="AnimatableView" customModule="IBAnimatable">
                                     <rect key="frame" x="25" y="25" width="105" height="105"/>
-                                    <subviews>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="demo_user" translatesAutoresizingMaskIntoConstraints="NO" id="Sns-OP-w3E">
-                                            <rect key="frame" x="-0.5" y="0.0" width="105" height="105"/>
-                                        </imageView>
-                                    </subviews>
                                     <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="height" secondItem="0bE-H9-zCp" secondAttribute="height" id="0iJ-NQ-ZEE"/>
-                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="centerX" secondItem="0bE-H9-zCp" secondAttribute="centerX" id="0pj-Ed-AYS"/>
-                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="width" secondItem="0bE-H9-zCp" secondAttribute="width" id="FfD-nj-hoW"/>
-                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="centerY" secondItem="0bE-H9-zCp" secondAttribute="centerY" id="Gzx-fG-Ocs"/>
                                         <constraint firstAttribute="width" constant="105" id="I0G-Id-NQk"/>
                                         <constraint firstAttribute="height" constant="105" id="aXi-3B-u6D"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="_maskType" value="Circle"/>
                                         <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                            <color key="value" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
@@ -81,8 +74,15 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                             <color key="value" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_animationType" value="pop(100)"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="demo_user" translatesAutoresizingMaskIntoConstraints="NO" id="Sns-OP-w3E">
+                    <rect key="frame" x="135" y="114" width="105" height="105"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloë Moretz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-mP-E9r">
                     <rect key="frame" x="110" y="300" width="154.5" height="31.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -95,25 +95,57 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-Q6-bE2">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-Q6-bE2" customClass="AnimatableButton" customModule="IBAnimatable">
                     <rect key="frame" x="60.5" y="504" width="74" height="74"/>
                     <state key="normal" image="call_answer"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.11"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                            <point key="value" x="0.0" y="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqJ-n0-F8f">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqJ-n0-F8f" customClass="AnimatableButton" customModule="IBAnimatable">
                     <rect key="frame" x="240.5" y="504" width="74" height="74"/>
                     <state key="normal" image="call_decline"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.11"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                            <point key="value" x="0.0" y="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Sns-OP-w3E" firstAttribute="bottom" secondItem="0bE-H9-zCp" secondAttribute="bottom" id="0et-aa-Uo4"/>
+                <constraint firstItem="Sns-OP-w3E" firstAttribute="leading" secondItem="0bE-H9-zCp" secondAttribute="leading" id="H9F-Wu-6Ac"/>
                 <constraint firstItem="Stl-Q6-bE2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-90" id="NU8-2y-Htf"/>
                 <constraint firstItem="gqJ-n0-F8f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="90" id="Qu2-Wh-Iaf"/>
                 <constraint firstItem="U3X-uc-a5Z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R8w-wn-kzu"/>
                 <constraint firstItem="NgU-gH-8Et" firstAttribute="centerX" secondItem="5u2-mP-E9r" secondAttribute="centerX" id="Snk-CJ-nEI"/>
                 <constraint firstItem="U3X-uc-a5Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="hgZ-cg-1LP"/>
                 <constraint firstAttribute="bottom" secondItem="Stl-Q6-bE2" secondAttribute="bottom" constant="89" id="lnV-W3-vny"/>
+                <constraint firstItem="Sns-OP-w3E" firstAttribute="top" secondItem="0bE-H9-zCp" secondAttribute="top" id="p4H-wh-2vX"/>
                 <constraint firstAttribute="bottom" secondItem="gqJ-n0-F8f" secondAttribute="bottom" constant="89" id="r5H-kJ-sKl"/>
                 <constraint firstItem="NgU-gH-8Et" firstAttribute="top" secondItem="5u2-mP-E9r" secondAttribute="bottom" constant="7.5" id="siL-fO-zzl"/>
+                <constraint firstItem="Sns-OP-w3E" firstAttribute="trailing" secondItem="0bE-H9-zCp" secondAttribute="trailing" id="ve1-xb-2gh"/>
                 <constraint firstItem="5u2-mP-E9r" firstAttribute="top" secondItem="U3X-uc-a5Z" secondAttribute="bottom" constant="31" id="vxL-u1-2BW"/>
                 <constraint firstItem="5u2-mP-E9r" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xp0-Bp-wJe"/>
             </constraints>

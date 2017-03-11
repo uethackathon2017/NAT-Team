@@ -22,7 +22,6 @@
 		468828081E730986005514DF /* APIHandles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828021E730986005514DF /* APIHandles.swift */; };
 		468828091E730986005514DF /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828031E730986005514DF /* APIRequest.swift */; };
 		4688280A1E730986005514DF /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828041E730986005514DF /* Domain.swift */; };
-		4688280B1E730986005514DF /* SocketHandles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828051E730986005514DF /* SocketHandles.swift */; };
 		4688280C1E730986005514DF /* SocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828061E730986005514DF /* SocketRequest.swift */; };
 		4688280D1E730986005514DF /* TDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828071E730986005514DF /* TDUtils.swift */; };
 		468828111E7319B2005514DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688280F1E7319B2005514DF /* RegisterViewController.swift */; };
@@ -60,6 +59,16 @@
 		ACB47C821E73624A0059E114 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C811E73624A0059E114 /* LessonsViewController.swift */; };
 		ACB47C841E73634A0059E114 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C831E73634A0059E114 /* LessonViewModel.swift */; };
 		ACB47C861E7364E80059E114 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C851E7364E80059E114 /* LessonTableViewCell.swift */; };
+		ACB639761E73E15B00B47F38 /* ARDAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639631E73E15B00B47F38 /* ARDAppClient.m */; };
+		ACB639771E73E15B00B47F38 /* ARDMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639651E73E15B00B47F38 /* ARDMessageResponse.m */; };
+		ACB639781E73E15B00B47F38 /* ARDRegisterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639671E73E15B00B47F38 /* ARDRegisterResponse.m */; };
+		ACB639791E73E15B00B47F38 /* ARDSignalingMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639691E73E15B00B47F38 /* ARDSignalingMessage.m */; };
+		ACB6397A1E73E15B00B47F38 /* ARDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6396B1E73E15B00B47F38 /* ARDUtilities.m */; };
+		ACB6397B1E73E15B00B47F38 /* ARDWebSocketChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6396D1E73E15B00B47F38 /* ARDWebSocketChannel.m */; };
+		ACB6397C1E73E15B00B47F38 /* RTCICECandidate+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6396F1E73E15B00B47F38 /* RTCICECandidate+JSON.m */; };
+		ACB6397D1E73E15B00B47F38 /* RTCICEServer+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639711E73E15B00B47F38 /* RTCICEServer+JSON.m */; };
+		ACB6397E1E73E15B00B47F38 /* RTCMediaConstraints+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639731E73E15B00B47F38 /* RTCMediaConstraints+JSON.m */; };
+		ACB6397F1E73E15B00B47F38 /* RTCSessionDescription+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB639751E73E15B00B47F38 /* RTCSessionDescription+JSON.m */; };
 		ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC8E31E72C78900C39086 /* AppDelegate.swift */; };
 		ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E61E72C78900C39086 /* LaunchScreen.storyboard */; };
 		ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEFC8E81E72C78900C39086 /* Main.storyboard */; };
@@ -86,7 +95,6 @@
 		468828021E730986005514DF /* APIHandles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandles.swift; sourceTree = "<group>"; };
 		468828031E730986005514DF /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		468828041E730986005514DF /* Domain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
-		468828051E730986005514DF /* SocketHandles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandles.swift; sourceTree = "<group>"; };
 		468828061E730986005514DF /* SocketRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketRequest.swift; sourceTree = "<group>"; };
 		468828071E730986005514DF /* TDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDUtils.swift; sourceTree = "<group>"; };
 		4688280F1E7319B2005514DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +132,26 @@
 		ACB47C811E73624A0059E114 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		ACB47C831E73634A0059E114 /* LessonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
 		ACB47C851E7364E80059E114 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
+		ACB639621E73E15B00B47F38 /* ARDAppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDAppClient.h; sourceTree = "<group>"; };
+		ACB639631E73E15B00B47F38 /* ARDAppClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDAppClient.m; sourceTree = "<group>"; };
+		ACB639641E73E15B00B47F38 /* ARDMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDMessageResponse.h; sourceTree = "<group>"; };
+		ACB639651E73E15B00B47F38 /* ARDMessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDMessageResponse.m; sourceTree = "<group>"; };
+		ACB639661E73E15B00B47F38 /* ARDRegisterResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDRegisterResponse.h; sourceTree = "<group>"; };
+		ACB639671E73E15B00B47F38 /* ARDRegisterResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDRegisterResponse.m; sourceTree = "<group>"; };
+		ACB639681E73E15B00B47F38 /* ARDSignalingMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDSignalingMessage.h; sourceTree = "<group>"; };
+		ACB639691E73E15B00B47F38 /* ARDSignalingMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDSignalingMessage.m; sourceTree = "<group>"; };
+		ACB6396A1E73E15B00B47F38 /* ARDUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDUtilities.h; sourceTree = "<group>"; };
+		ACB6396B1E73E15B00B47F38 /* ARDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDUtilities.m; sourceTree = "<group>"; };
+		ACB6396C1E73E15B00B47F38 /* ARDWebSocketChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDWebSocketChannel.h; sourceTree = "<group>"; };
+		ACB6396D1E73E15B00B47F38 /* ARDWebSocketChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDWebSocketChannel.m; sourceTree = "<group>"; };
+		ACB6396E1E73E15B00B47F38 /* RTCICECandidate+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCICECandidate+JSON.h"; sourceTree = "<group>"; };
+		ACB6396F1E73E15B00B47F38 /* RTCICECandidate+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCICECandidate+JSON.m"; sourceTree = "<group>"; };
+		ACB639701E73E15B00B47F38 /* RTCICEServer+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCICEServer+JSON.h"; sourceTree = "<group>"; };
+		ACB639711E73E15B00B47F38 /* RTCICEServer+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCICEServer+JSON.m"; sourceTree = "<group>"; };
+		ACB639721E73E15B00B47F38 /* RTCMediaConstraints+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCMediaConstraints+JSON.h"; sourceTree = "<group>"; };
+		ACB639731E73E15B00B47F38 /* RTCMediaConstraints+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCMediaConstraints+JSON.m"; sourceTree = "<group>"; };
+		ACB639741E73E15B00B47F38 /* RTCSessionDescription+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCSessionDescription+JSON.h"; sourceTree = "<group>"; };
+		ACB639751E73E15B00B47F38 /* RTCSessionDescription+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCSessionDescription+JSON.m"; sourceTree = "<group>"; };
 		ACEFC8CD1E72C62A00C39086 /* CrossWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEFC8E21E72C78900C39086 /* CrossWorld-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrossWorld-Bridging-Header.h"; path = "../CrossWorld-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACEFC8E31E72C78900C39086 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -281,7 +309,6 @@
 				468828021E730986005514DF /* APIHandles.swift */,
 				468828031E730986005514DF /* APIRequest.swift */,
 				468828041E730986005514DF /* Domain.swift */,
-				468828051E730986005514DF /* SocketHandles.swift */,
 				468828061E730986005514DF /* SocketRequest.swift */,
 			);
 			path = Networks;
@@ -576,6 +603,33 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		ACB639611E73E15B00B47F38 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				ACB639621E73E15B00B47F38 /* ARDAppClient.h */,
+				ACB639631E73E15B00B47F38 /* ARDAppClient.m */,
+				ACB639641E73E15B00B47F38 /* ARDMessageResponse.h */,
+				ACB639651E73E15B00B47F38 /* ARDMessageResponse.m */,
+				ACB639661E73E15B00B47F38 /* ARDRegisterResponse.h */,
+				ACB639671E73E15B00B47F38 /* ARDRegisterResponse.m */,
+				ACB639681E73E15B00B47F38 /* ARDSignalingMessage.h */,
+				ACB639691E73E15B00B47F38 /* ARDSignalingMessage.m */,
+				ACB6396A1E73E15B00B47F38 /* ARDUtilities.h */,
+				ACB6396B1E73E15B00B47F38 /* ARDUtilities.m */,
+				ACB6396C1E73E15B00B47F38 /* ARDWebSocketChannel.h */,
+				ACB6396D1E73E15B00B47F38 /* ARDWebSocketChannel.m */,
+				ACB6396E1E73E15B00B47F38 /* RTCICECandidate+JSON.h */,
+				ACB6396F1E73E15B00B47F38 /* RTCICECandidate+JSON.m */,
+				ACB639701E73E15B00B47F38 /* RTCICEServer+JSON.h */,
+				ACB639711E73E15B00B47F38 /* RTCICEServer+JSON.m */,
+				ACB639721E73E15B00B47F38 /* RTCMediaConstraints+JSON.h */,
+				ACB639731E73E15B00B47F38 /* RTCMediaConstraints+JSON.m */,
+				ACB639741E73E15B00B47F38 /* RTCSessionDescription+JSON.h */,
+				ACB639751E73E15B00B47F38 /* RTCSessionDescription+JSON.m */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		ACEFC8C41E72C62A00C39086 = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +694,7 @@
 		ACEFC8ED1E72C78900C39086 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ACB639611E73E15B00B47F38 /* Lib */,
 				ACB47C551E730A6D0059E114 /* CountryPicker */,
 				ACB47C501E72F93A0059E114 /* DatePicker */,
 				ACB47C4B1E72EEBA0059E114 /* Banner */,
@@ -840,18 +895,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				468828161E733131005514DF /* GroupViewController.swift in Sources */,
-				4688280B1E730986005514DF /* SocketHandles.swift in Sources */,
 				ACB47C7E1E7349290059E114 /* FriendViewModel.swift in Sources */,
 				468828081E730986005514DF /* APIHandles.swift in Sources */,
 				ACB47C631E7319900059E114 /* LanguageViewModel.swift in Sources */,
 				468827FE1E7308FF005514DF /* LoginViewController.swift in Sources */,
+				ACB6397B1E73E15B00B47F38 /* ARDWebSocketChannel.m in Sources */,
 				46D6D31C1E733DC4002A9018 /* UserViewModel.swift in Sources */,
 				468827FF1E7308FF005514DF /* LoginViewModel.swift in Sources */,
 				ACB47C6E1E7325B60059E114 /* FriendViewController.swift in Sources */,
 				46D6D31A1E733D9D002A9018 /* UserViewController.swift in Sources */,
 				464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */,
+				ACB639791E73E15B00B47F38 /* ARDSignalingMessage.m in Sources */,
+				ACB6397A1E73E15B00B47F38 /* ARDUtilities.m in Sources */,
 				4688280C1E730986005514DF /* SocketRequest.swift in Sources */,
 				46044D981E73AA6000510138 /* PlayVideoCollectionViewCell.swift in Sources */,
+				ACB639781E73E15B00B47F38 /* ARDRegisterResponse.m in Sources */,
 				ACB47C821E73624A0059E114 /* LessonsViewController.swift in Sources */,
 				ACB47C781E7333460059E114 /* HomeDetailTableViewCell.swift in Sources */,
 				46D6D3181E733D6F002A9018 /* LogoutTableViewCell.swift in Sources */,
@@ -862,14 +920,17 @@
 				ACB47C3F1E72D2D10059E114 /* ASTextField.swift in Sources */,
 				468827F81E7308DA005514DF /* ConversationTableViewCell.swift in Sources */,
 				ACB47C471E72EBD00059E114 /* AppAccess.swift in Sources */,
+				ACB6397D1E73E15B00B47F38 /* RTCICEServer+JSON.m in Sources */,
 				ACB47C4A1E72EDA00059E114 /* String+Extension.swift in Sources */,
 				464EE8B71E72EC7600044C70 /* LeftChatCell.swift in Sources */,
 				464EE8B81E72EC7600044C70 /* RightChatCell.swift in Sources */,
+				ACB639761E73E15B00B47F38 /* ARDAppClient.m in Sources */,
 				ACB47C7C1E7347B90059E114 /* PeopleTableViewCell.swift in Sources */,
 				ACEFC8FD1E72C99500C39086 /* AppDefine.swift in Sources */,
 				ACB47C4F1E72F0CA0059E114 /* AppError.swift in Sources */,
 				AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */,
 				ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */,
+				ACB639771E73E15B00B47F38 /* ARDMessageResponse.m in Sources */,
 				ACB47C611E73187A0059E114 /* LanguageTableViewCell.swift in Sources */,
 				468827F91E7308DA005514DF /* ConversationViewController.swift in Sources */,
 				ACB47C841E73634A0059E114 /* LessonViewModel.swift in Sources */,
@@ -880,10 +941,12 @@
 				ACB47C521E72F9490059E114 /* DatePickerViewController.swift in Sources */,
 				ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */,
 				46044D961E73AA2400510138 /* PlayVideoViewController.swift in Sources */,
+				ACB6397F1E73E15B00B47F38 /* RTCSessionDescription+JSON.m in Sources */,
 				468828181E733143005514DF /* GroupTableViewCell.swift in Sources */,
 				46D6D3201E7347CD002A9018 /* NotificationViewController.swift in Sources */,
 				ACB47C4D1E72EEC80059E114 /* BannerManager.swift in Sources */,
 				ACB47C7A1E7347300059E114 /* SpotyPeopleTableViewCell.swift in Sources */,
+				ACB6397E1E73E15B00B47F38 /* RTCMediaConstraints+JSON.m in Sources */,
 				468828111E7319B2005514DF /* RegisterViewController.swift in Sources */,
 				ACEFC8F71E72C7C400C39086 /* Utils.swift in Sources */,
 				4688280D1E730986005514DF /* TDUtils.swift in Sources */,
@@ -891,6 +954,7 @@
 				468828091E730986005514DF /* APIRequest.swift in Sources */,
 				ACB47C581E730AB30059E114 /* CountryPickerViewController.swift in Sources */,
 				46D6D3171E733D6F002A9018 /* AvatarTableViewCell.swift in Sources */,
+				ACB6397C1E73E15B00B47F38 /* RTCICECandidate+JSON.m in Sources */,
 				464EE8BD1E72ECE000044C70 /* Messenger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1015,6 +1079,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 556LZQ7WUH;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CrossWorld/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NAT.CrossWorld;
@@ -1032,6 +1097,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 556LZQ7WUH;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CrossWorld/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NAT.CrossWorld;

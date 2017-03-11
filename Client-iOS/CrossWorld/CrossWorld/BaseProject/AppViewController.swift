@@ -232,6 +232,7 @@ extension AppViewController {
 extension AppViewController {
     func showCall() {
         let callVC = OutCallViewController()
+        callVC.callState = .waitingAnswer
         callVC.popup = PopupController.create(self.tabBarController ?? self.navigationController ?? self).customize([
             PopupCustomOption.animation(PopupController.PopupAnimation.fadeIn),
             PopupCustomOption.backgroundStyle(PopupController.PopupBackgroundStyle.blackFilter(alpha: 0)),

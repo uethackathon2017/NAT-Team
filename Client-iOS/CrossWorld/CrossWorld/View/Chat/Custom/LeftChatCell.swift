@@ -10,7 +10,7 @@ import UIKit
 
 class LeftChatCell: UITableViewCell {
 
-    @IBOutlet weak var constrainLbTimeWidth: NSLayoutConstraint!
+    @IBOutlet weak var imgState: UIImageView!
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var lbReceiveMsg: UILabel!
     @IBOutlet weak var lbTime: UILabel!

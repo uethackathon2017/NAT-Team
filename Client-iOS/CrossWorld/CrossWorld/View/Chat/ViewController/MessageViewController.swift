@@ -162,10 +162,12 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? LeftChatCell{
             cell.lbTime.isHidden = true
+            cell.imgState.image = nil
         }
         
         if let cell = cell as? RightChatCell{
-            // cell.constrainLbTimeWidth.constant = 0
+            cell.imgState.image = nil
+            cell.lbTime.isHidden = true
         }
     }
     
@@ -192,26 +194,17 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
             cell.showMessageTime()
         }
         
+        if let cell = tbMessage.cellForRow(at: indexPath) as? RightChatCell {
+            cell.showMessageTime()
+        }
+        
     }
-    //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    //        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-    //        footerView.backgroundColor = UIColor.white
-    //        return footerView
-    //    }
-    
-    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //        return 61
-    //    }
     
     //MARK: TextView Delegate
-    
-    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         self.changeSizeTextViewInput()
         return true
     }
-    
-    
     
     func changeSizeTextViewInput(){
         

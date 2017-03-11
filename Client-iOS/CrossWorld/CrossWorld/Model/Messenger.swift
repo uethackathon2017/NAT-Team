@@ -14,6 +14,8 @@ class Messenger {
     var content: String?
     var timeStamp: Double?
     var wasRead = false
+    var wasSend = false
+    var wasSendFail = false
     var wasWritebyMe = true
     
     init(){

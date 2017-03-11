@@ -10,8 +10,11 @@ import UIKit
 
 class RightChatCell: UITableViewCell {
 
+    @IBOutlet weak var imgState: UIImageView!
+    @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var lbSenderMsg: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,10 +22,8 @@ class RightChatCell: UITableViewCell {
         self.imgAvatar.clipsToBounds = true
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    func showMessageTime(){
+        lbTime.isHidden = !lbTime.isHidden
     }
 
 }

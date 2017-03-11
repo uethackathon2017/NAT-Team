@@ -28,5 +28,12 @@ target 'CrossWorld' do
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKMessengerShareKit'
+  
+  #Socket
+  pod 'Socket.IO-Client-Swift'
+  
+  #WebRTC
+  pod 'libjingle_peerconnection'
+  pod 'SocketRocket'
 
 end
