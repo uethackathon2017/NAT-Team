@@ -35,6 +35,7 @@ class AppDefine {
         static var loginDetailToHome = "loginDetailToHome"
         static var loginToHome = "loginToHome"
         static var homeToLesson = "homeToLesson"
+        static var lessonToPlayVideo = "lessonToPlayVideo"
     }
     
     // MARK: - Define

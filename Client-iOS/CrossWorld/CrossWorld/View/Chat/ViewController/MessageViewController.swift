@@ -64,7 +64,7 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
     override func setupViewController() {
         typeNavigationBar = .normal
         leftButtonType = .back
-        rightButtonType = .notification
+        rightButtonType = .call
         self.title = AppDefine.Screen.chat
     }
     

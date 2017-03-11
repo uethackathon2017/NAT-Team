@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OutCallViewController" customModule="CrossWorld" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAnswer" destination="Stl-Q6-bE2" id="FAH-Ib-leC"/>
+                <outlet property="btnEndCall" destination="gqJ-n0-F8f" id="5cn-7G-5St"/>
+                <outlet property="imgAvatar" destination="Sns-OP-w3E" id="MBd-mk-2Se"/>
+                <outlet property="lblName" destination="5u2-mP-E9r" id="upY-KC-Whd"/>
+                <outlet property="lblTime" destination="NgU-gH-8Et" id="nH2-bp-6TZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="AnimatableView" customModule="IBAnimatable">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-uc-a5Z" customClass="AnimatableView" customModule="IBAnimatable">
+                    <rect key="frame" x="85" y="64" width="205" height="205"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fya-Ae-w2y" customClass="AnimatableView" customModule="IBAnimatable">
+                            <rect key="frame" x="25" y="25" width="155" height="155"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-H9-zCp" customClass="AnimatableView" customModule="IBAnimatable">
+                                    <rect key="frame" x="25" y="25" width="105" height="105"/>
+                                    <subviews>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="demo_user" translatesAutoresizingMaskIntoConstraints="NO" id="Sns-OP-w3E">
+                                            <rect key="frame" x="-0.5" y="0.0" width="105" height="105"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="height" secondItem="0bE-H9-zCp" secondAttribute="height" id="0iJ-NQ-ZEE"/>
+                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="centerX" secondItem="0bE-H9-zCp" secondAttribute="centerX" id="0pj-Ed-AYS"/>
+                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="width" secondItem="0bE-H9-zCp" secondAttribute="width" id="FfD-nj-hoW"/>
+                                        <constraint firstItem="Sns-OP-w3E" firstAttribute="centerY" secondItem="0bE-H9-zCp" secondAttribute="centerY" id="Gzx-fG-Ocs"/>
+                                        <constraint firstAttribute="width" constant="105" id="I0G-Id-NQk"/>
+                                        <constraint firstAttribute="height" constant="105" id="aXi-3B-u6D"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="_maskType" value="Circle"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                            <color key="value" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="0bE-H9-zCp" firstAttribute="centerY" secondItem="Fya-Ae-w2y" secondAttribute="centerY" id="AuA-iN-LCR"/>
+                                <constraint firstAttribute="width" constant="155" id="Huq-Pw-Du9"/>
+                                <constraint firstAttribute="height" constant="155" id="d56-46-naG"/>
+                                <constraint firstItem="0bE-H9-zCp" firstAttribute="centerX" secondItem="Fya-Ae-w2y" secondAttribute="centerX" id="xZj-z2-5pe"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="_maskType" value="Circle"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                    <color key="value" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Fya-Ae-w2y" firstAttribute="centerX" secondItem="U3X-uc-a5Z" secondAttribute="centerX" id="CMo-zn-sSG"/>
+                        <constraint firstItem="Fya-Ae-w2y" firstAttribute="centerY" secondItem="U3X-uc-a5Z" secondAttribute="centerY" id="MAt-Vx-jn7"/>
+                        <constraint firstAttribute="height" constant="205" id="RXP-UR-N0B"/>
+                        <constraint firstAttribute="width" constant="205" id="Scy-ja-DDk"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_maskType" value="Circle"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                            <color key="value" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloë Moretz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-mP-E9r">
+                    <rect key="frame" x="110" y="300" width="154.5" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgU-gH-8Et">
+                    <rect key="frame" x="166" y="339" width="43" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-Q6-bE2">
+                    <rect key="frame" x="60.5" y="504" width="74" height="74"/>
+                    <state key="normal" image="call_answer"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqJ-n0-F8f">
+                    <rect key="frame" x="240.5" y="504" width="74" height="74"/>
+                    <state key="normal" image="call_decline"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Stl-Q6-bE2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-90" id="NU8-2y-Htf"/>
+                <constraint firstItem="gqJ-n0-F8f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="90" id="Qu2-Wh-Iaf"/>
+                <constraint firstItem="U3X-uc-a5Z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R8w-wn-kzu"/>
+                <constraint firstItem="NgU-gH-8Et" firstAttribute="centerX" secondItem="5u2-mP-E9r" secondAttribute="centerX" id="Snk-CJ-nEI"/>
+                <constraint firstItem="U3X-uc-a5Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="hgZ-cg-1LP"/>
+                <constraint firstAttribute="bottom" secondItem="Stl-Q6-bE2" secondAttribute="bottom" constant="89" id="lnV-W3-vny"/>
+                <constraint firstAttribute="bottom" secondItem="gqJ-n0-F8f" secondAttribute="bottom" constant="89" id="r5H-kJ-sKl"/>
+                <constraint firstItem="NgU-gH-8Et" firstAttribute="top" secondItem="5u2-mP-E9r" secondAttribute="bottom" constant="7.5" id="siL-fO-zzl"/>
+                <constraint firstItem="5u2-mP-E9r" firstAttribute="top" secondItem="U3X-uc-a5Z" secondAttribute="bottom" constant="31" id="vxL-u1-2BW"/>
+                <constraint firstItem="5u2-mP-E9r" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xp0-Bp-wJe"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="_blurEffectStyle" value="dark"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="blurOpacity">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+        </view>
+    </objects>
+    <resources>
+        <image name="call_answer" width="74" height="74"/>
+        <image name="call_decline" width="74" height="74"/>
+        <image name="demo_user" width="54" height="55"/>
+    </resources>
+</document>

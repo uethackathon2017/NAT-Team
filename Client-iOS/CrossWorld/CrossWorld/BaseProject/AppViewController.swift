@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import PopupController
 
 class AppViewController: UIViewController, NVActivityIndicatorViewable {
     
@@ -44,6 +45,7 @@ class AppViewController: UIViewController, NVActivityIndicatorViewable {
         case back
         case cancel
         case notification
+        case call
         case user(String)
         case stringButton(String)
     }
@@ -150,6 +152,10 @@ extension AppViewController {
             let rightButton = UIBarButtonItem.init(image: #imageLiteral(resourceName: "navi_noti"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightNaviButtonTapped))
             navigationItem.rightBarButtonItem = rightButton
             break
+        case .call:
+            let rightButton = UIBarButtonItem.init(image: #imageLiteral(resourceName: "icon_call"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightNaviButtonTapped))
+            navigationItem.rightBarButtonItem = rightButton
+            break
         case .stringButton(let titleButton):
             let rightButton = UIBarButtonItem.init(title: titleButton, style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightNaviButtonTapped))
             navigationItem.rightBarButtonItem = rightButton
@@ -213,9 +219,25 @@ extension AppViewController {
                 self.present(navi, animated: true, completion: nil)
             }
             break
+        case .call:
+            showCall()
+            break
         default:
             fatalError("You need overide this method.")
         }
     }
     
+}
+
+extension AppViewController {
+    func showCall() {
+        let callVC = OutCallViewController()
+        callVC.popup = PopupController.create(self.tabBarController ?? self.navigationController ?? self).customize([
+            PopupCustomOption.animation(PopupController.PopupAnimation.fadeIn),
+            PopupCustomOption.backgroundStyle(PopupController.PopupBackgroundStyle.blackFilter(alpha: 0)),
+            PopupCustomOption.dismissWhenTaps(false),
+            PopupCustomOption.movesAlongWithKeyboard(true),
+            PopupCustomOption.layout(PopupController.PopupLayout.center),
+            ]).show(callVC)
+    }
 }

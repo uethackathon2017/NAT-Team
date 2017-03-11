@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E2CD2C07DD80B3E57B74FC2 /* Pods_CrossWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F521D370B99DB0FB27A46F83 /* Pods_CrossWorld.framework */; };
+		46044D961E73AA2400510138 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46044D951E73AA2400510138 /* PlayVideoViewController.swift */; };
+		46044D981E73AA6000510138 /* PlayVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46044D971E73AA6000510138 /* PlayVideoCollectionViewCell.swift */; };
 		464EE8B71E72EC7600044C70 /* LeftChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B21E72EC7600044C70 /* LeftChatCell.swift */; };
 		464EE8B81E72EC7600044C70 /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B31E72EC7600044C70 /* RightChatCell.swift */; };
 		464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EE8B51E72EC7600044C70 /* MessageViewController.swift */; };
@@ -31,6 +33,8 @@
 		46D6D31A1E733D9D002A9018 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3191E733D9D002A9018 /* UserViewController.swift */; };
 		46D6D31C1E733DC4002A9018 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D31B1E733DC4002A9018 /* UserViewModel.swift */; };
 		46D6D3201E7347CD002A9018 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D31F1E7347CD002A9018 /* NotificationViewController.swift */; };
+		AC1F13141E73A9A200595C17 /* OutCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F13121E73A9A200595C17 /* OutCallViewController.swift */; };
+		AC1F13151E73A9A200595C17 /* OutCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1F13131E73A9A200595C17 /* OutCallViewController.xib */; };
 		AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */; };
 		ACB47C3F1E72D2D10059E114 /* ASTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C3E1E72D2D10059E114 /* ASTextField.swift */; };
 		ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */; };
@@ -68,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		3EC5D6D859E30ED5168ADDCD /* Pods-CrossWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossWorld/Pods-CrossWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		46044D951E73AA2400510138 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
+		46044D971E73AA6000510138 /* PlayVideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		464EE8B21E72EC7600044C70 /* LeftChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftChatCell.swift; sourceTree = "<group>"; };
 		464EE8B31E72EC7600044C70 /* RightChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
 		464EE8B51E72EC7600044C70 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,8 @@
 		46D6D3191E733D9D002A9018 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		46D6D31B1E733DC4002A9018 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		46D6D31F1E7347CD002A9018 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		AC1F13121E73A9A200595C17 /* OutCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutCallViewController.swift; sourceTree = "<group>"; };
+		AC1F13131E73A9A200595C17 /* OutCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutCallViewController.xib; sourceTree = "<group>"; };
 		AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
 		ACB47C3E1E72D2D10059E114 /* ASTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTextField.swift; sourceTree = "<group>"; };
 		ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDetailViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +150,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46044D911E73AA1200510138 /* PlayVideo */ = {
+			isa = PBXGroup;
+			children = (
+				46044D921E73AA1200510138 /* Custom */,
+				46044D931E73AA1200510138 /* ViewController */,
+				46044D941E73AA1200510138 /* ViewModel */,
+			);
+			path = PlayVideo;
+			sourceTree = "<group>";
+		};
+		46044D921E73AA1200510138 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				46044D971E73AA6000510138 /* PlayVideoCollectionViewCell.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		46044D931E73AA1200510138 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46044D951E73AA2400510138 /* PlayVideoViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		46044D941E73AA1200510138 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		464EE8B01E72EC7600044C70 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +374,22 @@
 				46D6D31F1E7347CD002A9018 /* NotificationViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AC1F13101E73A97B00595C17 /* OutCall */ = {
+			isa = PBXGroup;
+			children = (
+				AC1F13121E73A9A200595C17 /* OutCallViewController.swift */,
+				AC1F13131E73A9A200595C17 /* OutCallViewController.xib */,
+			);
+			path = OutCall;
+			sourceTree = "<group>";
+		};
+		AC1F13111E73A98900595C17 /* InCall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InCall;
 			sourceTree = "<group>";
 		};
 		AC4335BB1E72D18800EFBF96 /* LoginDetail */ = {
@@ -596,6 +653,9 @@
 		ACEFC8EE1E72C78900C39086 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				46044D911E73AA1200510138 /* PlayVideo */,
+				AC1F13111E73A98900595C17 /* InCall */,
+				AC1F13101E73A97B00595C17 /* OutCall */,
 				ACB47C7F1E7362290059E114 /* Lessons */,
 				46D6D31D1E7347C0002A9018 /* Notification */,
 				46D6D3111E733D6F002A9018 /* User */,
@@ -715,6 +775,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACEFC8F31E72C78900C39086 /* Info.plist in Resources */,
+				AC1F13151E73A9A200595C17 /* OutCallViewController.xib in Resources */,
 				ACB47C541E72F9690059E114 /* DatePickerViewController.xib in Resources */,
 				ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */,
 				ACB47C591E730AB30059E114 /* CountryPickerViewController.xib in Resources */,
@@ -790,6 +851,7 @@
 				46D6D31A1E733D9D002A9018 /* UserViewController.swift in Sources */,
 				464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */,
 				4688280C1E730986005514DF /* SocketRequest.swift in Sources */,
+				46044D981E73AA6000510138 /* PlayVideoCollectionViewCell.swift in Sources */,
 				ACB47C821E73624A0059E114 /* LessonsViewController.swift in Sources */,
 				ACB47C781E7333460059E114 /* HomeDetailTableViewCell.swift in Sources */,
 				46D6D3181E733D6F002A9018 /* LogoutTableViewCell.swift in Sources */,
@@ -812,10 +874,12 @@
 				468827F91E7308DA005514DF /* ConversationViewController.swift in Sources */,
 				ACB47C841E73634A0059E114 /* LessonViewModel.swift in Sources */,
 				ACB47C861E7364E80059E114 /* LessonTableViewCell.swift in Sources */,
+				AC1F13141E73A9A200595C17 /* OutCallViewController.swift in Sources */,
 				ACB47C5E1E7315140059E114 /* LanguageViewController.swift in Sources */,
 				ACEFC8EF1E72C78900C39086 /* AppDelegate.swift in Sources */,
 				ACB47C521E72F9490059E114 /* DatePickerViewController.swift in Sources */,
 				ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */,
+				46044D961E73AA2400510138 /* PlayVideoViewController.swift in Sources */,
 				468828181E733143005514DF /* GroupTableViewCell.swift in Sources */,
 				46D6D3201E7347CD002A9018 /* NotificationViewController.swift in Sources */,
 				ACB47C4D1E72EEC80059E114 /* BannerManager.swift in Sources */,

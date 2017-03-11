@@ -95,6 +95,8 @@ extension LessonsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
+        
+        self.performSegue(withIdentifier: AppDefine.Segue.lessonToPlayVideo, sender: nil)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

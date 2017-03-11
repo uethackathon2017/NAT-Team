@@ -21,6 +21,7 @@ target 'CrossWorld' do
   pod 'SwiftDate'
   pod 'ImagePicker'
   pod 'CountryPickerSwift'
+  pod 'XCDYouTubeKit'
   
   #Facebook SDK
   pod 'FBSDKCoreKit'

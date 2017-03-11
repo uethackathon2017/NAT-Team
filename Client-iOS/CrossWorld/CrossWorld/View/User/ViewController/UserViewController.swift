@@ -58,7 +58,11 @@ class UserViewController: AppViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(viewModel.tbDataSource[section].headerHeight)
+        if section == 0 {
+            return CGFloat.leastNormalMagnitude
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
