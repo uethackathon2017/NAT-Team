@@ -8,4 +8,5 @@
 
 ## Nền tảng công nghệ
 
-**Server**: Nodejs, SocketIO, WebRTC, MySQL\n**Client - iOS**: Swift3, SocketIO, WebRTC
+**Server**: Nodejs, SocketIO, WebRTC, MySQL
+**Client - iOS**: Swift3, SocketIO, WebRTC
