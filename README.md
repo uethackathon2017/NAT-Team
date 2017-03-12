@@ -9,7 +9,7 @@
 ## Nền tảng công nghệ
 # Server
 Nodejs, SocketIO, WebRTC, MySQL
-   **iOS**
+#Client - iOS
   pod 'TPKeyboardAvoiding'
   pod 'Alamofire'
   pod 'Kingfisher'
