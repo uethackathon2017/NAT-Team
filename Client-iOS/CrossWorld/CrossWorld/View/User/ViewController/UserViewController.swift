@@ -131,6 +131,7 @@ class UserViewController: AppViewController, UITableViewDelegate, UITableViewDat
         if indexPath.section == viewModel.tbDataSource.count - 1{
             
             DataAccess.shared.removeUser()
+            SocketRequest.share.appSocket.disconnect()
             
             //            APIRequest().logout(handle: { (isSuccess, data) in
             //                //

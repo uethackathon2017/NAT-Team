@@ -16,6 +16,7 @@ class GroupViewController: AppViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Declare
     
     // MARK: - Define
+    let viewModel = GroupViewModel()
     
     // MARK: - Setup
     
@@ -48,7 +49,7 @@ class GroupViewController: AppViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return viewModel.listPeople.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -97,9 +98,11 @@ class GroupViewController: AppViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell", for: indexPath) as? GroupTableViewCell {
+            let item = viewModel.listPeople[indexPath.row]
             cell.imgPhoto.image = UIImage().randomAvatar()
             cell.imgAvatarTop.image = UIImage().randomAvatar()
             cell.imgAvatarBottom.image = UIImage().randomAvatar()
+            cell.lbName.text = item.title
             
             return cell
         }

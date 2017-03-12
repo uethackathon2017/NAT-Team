@@ -27,12 +27,15 @@
 <form  id="form4" action="">
   <input id="m4" autocomplete="off" /><button>create room</button>
 </form>
+<form  id="form5" action="">
+  <input id="m5" autocomplete="off" /><button>get random room</button>
+</form>
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     var socket = io();
 
-    socket.emit('new-user', {user_id: 'aAblLBAV4K'}, function(d){
+    socket.emit('new-user', {user_id: 'EvJ8ycdlkv'}, function(d){
         $('#messages').append($('<li>').text(JSON.stringify(d)));
     })
 
@@ -43,17 +46,26 @@
     // });
 
     $('#form4').submit(function () {
-        socket.emit('create-room', {user_id: 'aAblLBAV4K', other_user: 'B7I745Js5T'}, function(d){
+        socket.emit('create-room', {user_id: 'TCaiYqGPzI', other_user: 'B7I745Js5T'}, function(d){
             $('#messages').append($('<li>').text(JSON.stringify(d)));
         });
         $('#m4').val('');
         return false;
     });
 
+    $('#form5').submit(function () {
+        socket.emit('get-random-room', {user_id: 'TCaiYqGPzI'}, 
+            function(d){
+            $('#messages').append($('<li>').text(JSON.stringify(d)));
+        });
+        $('#m5').val('');
+        return false;
+    });
+
     $('#form3').submit(function () {
         socket.emit('send-message', 
             {
-                user_id: 'aAblLBAV4K',
+                user_id: 'EvJ8ycdlkv',
                 message: $('#m3').val(),
                 room_id: 1
         }, function(){});
@@ -106,6 +118,9 @@
         $('#messages').append($('<li>').text(JSON.stringify(msg)));
     });
 
+    socket.on('get-random-room', function(msg){
+        $('#messages').append($('<li>').text(JSON.stringify(msg)));
+    });
 </script>
 </body>
 </html>

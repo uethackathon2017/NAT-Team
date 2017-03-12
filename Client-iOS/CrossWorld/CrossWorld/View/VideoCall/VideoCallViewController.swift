@@ -74,6 +74,10 @@ class VideoCallViewController: AppViewController {
         initialize()
         connectToChatRoom()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        self.client?.enableSpeaker()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,6 +142,7 @@ extension VideoCallViewController: ARDAppClientDelegate, RTCEAGLVideoViewDelegat
         remoteView.delegate = self
         localView.delegate = self
         client?.enableSpeaker()
+//        client?.disableSpeaker()
     }
     
     func connectToChatRoom(){

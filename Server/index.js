@@ -14,7 +14,7 @@ app.get('/client2', function(req, res) {
 });
 
 var WebAPIHandler = require('./api/WebAPIHandler');
-var SocketAPIHandler = require('./SocketAPI/SocketAPIHandler');
+var SocketAPIHandler = require('./SocketAPI/SocketApiHandler');
 
 server.listen(process.env.PORT || 3000);
 

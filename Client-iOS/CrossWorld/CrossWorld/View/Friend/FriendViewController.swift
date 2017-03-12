@@ -17,6 +17,16 @@ class FriendViewController: AppViewController {
     // MARK: - Declare
     var viewModel = FriendViewModel()
     
+    var listRandomUser: [User] = [] {
+        didSet {
+            if listRandomUser.count > 0 {
+                let des = FriendViewModel.SpotyCellDescription(title: "Ngẫu nhiên", users: listRandomUser)
+                self.viewModel.listSpotyCell = [des]
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Define
     
     // MARK: - Setup
@@ -41,6 +51,12 @@ class FriendViewController: AppViewController {
         self.rightButtonType = .notification
         self.leftButtonType = .user("")
         self.title = "Mọi người"
+    }
+    
+    override func setupUI() {
+        viewModel.getListRandom { [weak self] (listUser) in
+            self?.listRandomUser = listUser
+        }
     }
 
 }
@@ -124,6 +140,15 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: AppDefine.cellId.idCellSpotyPeople, for: indexPath) as? SpotyPeopleTableViewCell {
                 let model = viewModel.listSpotyCell[indexPath.row]
                 cell.lblTitle.text = model.title
+                cell.listUser = model.users
+                for index in 0...(model.users.count - 1) {
+                    cell.btnPeoples[index].tag = index
+                    cell.btnPeoples[index].addTarget(self, action: #selector(createRoom), for: .touchUpInside)
+                    cell.lblPeoples[index].text = model.users[index].fullName
+                    cell.lblPeoples[index].isHidden = false
+                    (cell.btnPeoples[index] as UIButton).kf.setBackgroundImage(with: URL(string: model.users[index].avatar ?? ""), for: .normal)
+                    cell.btnPeoples[index].isHidden = false
+                }
                 return cell
             }
             break
@@ -167,6 +192,39 @@ extension FriendViewController {
 //    func makeVideoCall() {
 //        self.showCall()
 //    }
+    
+    func createRoom(_ sender: UIButton) {
+        let other = listRandomUser[sender.tag]
+        let param = [
+            "user_id": User.current.user_id ?? "",
+            "other_user": other.user_id ?? ""
+        ]
+        let ack = SocketRequest.share.appSocket.emitWithAck("create-room", param)
+        ack.timingOut(after: 20) { [weak self] (data) in
+            if let selfStrong = self {
+                if let data = data.first as? NSDictionary{
+                    let res = ResObject(dictionary: data)
+                    if let data = res.data{
+                        if let roomId = data.value(forKey: "room_id") as? NSNumber {
+                            if let mesVC = self?.storyboard?.instantiateViewController(withIdentifier: "MessageViewController") as? MessageViewController {
+                                let room = RoomDetail()
+                                room.avatar = other.avatar
+                                room.full_name = other.fullName
+                                room.room_id = roomId
+                                mesVC.room = room
+                                self?.navigationController?.pushViewController(mesVC, animated: true)
+                            }
+                        }
+                    }else{
+                        
+                    }
+                }else{
+                    
+                }
+            }
+        }
+    }
+    
 }
 
 

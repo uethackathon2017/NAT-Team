@@ -17,7 +17,7 @@ class HomeViewModel {
     }
     
     var listCell: [CellDescription] = [
-        CellDescription(title: "Xếp hạng cộng tác viên", image: "home_body"),
+        CellDescription(title: "Bắt đầu trò chuyện", image: "home_body"),
         CellDescription(title: "Lịch sử", image: "home_record"),
         CellDescription(title: "Chat với người bản xứ", image: "home_chat"),
         CellDescription(title: "Kết quả học tập", image: "home_resource")

@@ -24,10 +24,9 @@ class ConversationViewController: AppViewController, UITableViewDelegate, UITabl
     // MARK: - Setup
     
     func getData(){
-        self.startAnimating()
+        BannerManager.share.showWaiting(withContent: "Loading", isStatusLevel: false, inViewController: self)
         viewModel.getData { (isSuccess) in
-            self.stopAnimating()
-            
+            BannerManager.share.hideWaiting()
             if isSuccess{
                 self.tbConverstation.reloadData()
             }

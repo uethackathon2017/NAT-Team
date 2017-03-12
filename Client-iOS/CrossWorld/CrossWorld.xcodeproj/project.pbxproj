@@ -33,6 +33,7 @@
 		468828181E733143005514DF /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828171E733143005514DF /* GroupTableViewCell.swift */; };
 		46905F411E745BA900FC52D0 /* LeftImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46905F401E745BA900FC52D0 /* LeftImageTableViewCell.swift */; };
 		46905F431E745BB500FC52D0 /* RightImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46905F421E745BB500FC52D0 /* RightImageTableViewCell.swift */; };
+		46905F471E74EDED00FC52D0 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46905F461E74EDED00FC52D0 /* GroupViewModel.swift */; };
 		46D6D3171E733D6F002A9018 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3131E733D6F002A9018 /* AvatarTableViewCell.swift */; };
 		46D6D3181E733D6F002A9018 /* LogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3141E733D6F002A9018 /* LogoutTableViewCell.swift */; };
 		46D6D31A1E733D9D002A9018 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3191E733D9D002A9018 /* UserViewController.swift */; };
@@ -117,6 +118,7 @@
 		468828171E733143005514DF /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		46905F401E745BA900FC52D0 /* LeftImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftImageTableViewCell.swift; sourceTree = "<group>"; };
 		46905F421E745BB500FC52D0 /* RightImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightImageTableViewCell.swift; sourceTree = "<group>"; };
+		46905F461E74EDED00FC52D0 /* GroupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		46D6D3131E733D6F002A9018 /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		46D6D3141E733D6F002A9018 /* LogoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutTableViewCell.swift; sourceTree = "<group>"; };
 		46D6D3191E733D9D002A9018 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		468828131E733131005514DF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				46905F461E74EDED00FC52D0 /* GroupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1009,6 +1012,7 @@
 				46044D961E73AA2400510138 /* PlayVideoViewController.swift in Sources */,
 				ACB6397F1E73E15B00B47F38 /* RTCSessionDescription+JSON.m in Sources */,
 				468828181E733143005514DF /* GroupTableViewCell.swift in Sources */,
+				46905F471E74EDED00FC52D0 /* GroupViewModel.swift in Sources */,
 				46D6D3201E7347CD002A9018 /* NotificationViewController.swift in Sources */,
 				ACB47C4D1E72EEC80059E114 /* BannerManager.swift in Sources */,
 				ACB47C7A1E7347300059E114 /* SpotyPeopleTableViewCell.swift in Sources */,

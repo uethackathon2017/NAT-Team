@@ -46,12 +46,30 @@ class FriendViewModel {
     }
     
     var listSpotyCell: [SpotyCellDescription] = [
-        SpotyCellDescription(title: "Ngẫu nhiên", users: [
-                User(), User(), User(), User()
-            ]),
-        SpotyCellDescription(title: "Gần đây", users: [
-            User(), User(), User(), User()
-            ]),
+        
     ]
+    
+    func getListRandom(completeHandle:(([User])->())?) {
+        let param = [
+            "user_id": User.current.user_id ?? ""
+        ]
+        SocketRequest.share.appSocket.emit("get-random-room", param)
+        SocketRequest.share.appSocket.on("get-random-room") { (data, ack) in
+            if let data = data.first as? NSDictionary{
+                let res = ResObject(dictionary: data)
+                if let data = res.data {
+                    if let dataRandom = data.value(forKey: "random") as? [NSDictionary] {
+                        let listRandom = [User].init(dictionaryArray: dataRandom)
+                        completeHandle?(listRandom)
+                        SocketRequest.share.appSocket.off("get-random-room")
+                    } else {
+                        completeHandle?([])
+                    }
+                }else{
+                    completeHandle?([])
+                }
+            }
+        }
+    }
     
 }

@@ -54,6 +54,13 @@ ChatHandle.prototype.attach = function (io, socket) {
                         temp.data = {
                             room_id: result.room_id
                         }
+                        socket.join(temp.data.room_id);
+                        for(var i=0; i<clients.length; i++) {
+                            if(clients[i].user_id == item.native_user){
+                                clients[i].join(temp.data.room_id);
+                                break;
+                            }
+                        }
                         callback(temp);
                     } else {
                         conn = mysql.createConnection(db);
@@ -66,6 +73,13 @@ ChatHandle.prototype.attach = function (io, socket) {
                                 temp = responseData.create(Const.successTrue, Const.msgCreateRoom, Const.resNoErrorCode);
                                 temp.data = {
                                     room_id: r['insertId']
+                                }
+                                socket.join(temp.data.room_id);
+                                for(var i=0; i<clients.length; i++) {
+                                    if(clients[i].user_id == item.native_user){
+                                        clients[i].join(temp.data.room_id);
+                                        break;
+                                    }
                                 }
                                 callback(temp);
                             }

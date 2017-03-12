@@ -135,7 +135,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableViewAction
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                self.tabBarController?.selectedIndex = 1
+            } else if indexPath.row == 1 {
+                Utils.showAlertDefault("Thông báo", message: "Bạn chưa hoàn thành bài tập nào", buttons: ["Ok"], completed: nil)
+            } else if indexPath.row == 2 {
+                self.tabBarController?.selectedIndex = 2
+            } else if indexPath.row == 3 {
+                Utils.showAlertDefault("Thông báo", message: "Kết quả của bạn sẽ được cập nhật sớm nhất", buttons: ["Ok"], completed: nil)
+            }
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

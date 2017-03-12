@@ -8,12 +8,15 @@
 
 import UIKit
 import IBAnimatable
+import Bond
 
 class SpotyPeopleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet var btnPeoples: [AnimatableButton]!
     @IBOutlet var lblPeoples: [UILabel]!
+    
+    var listUser:[User] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()

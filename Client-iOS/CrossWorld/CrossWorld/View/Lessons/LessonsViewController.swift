@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftMessages
 
 class LessonsViewController: AppViewController {
 
@@ -84,6 +85,12 @@ extension LessonsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblAuthor.text = model.author
             cell.imgCover.image = UIImage(named: model.imageUrl)
             cell.lblDes.text = model.shortDes
+            if model.isUnLock {
+                cell.btnUnLock.isHidden = true
+            }else{
+                cell.btnUnLock.isHidden = false
+                cell.btnUnLock.addTarget(self, action: #selector(unlockCource), for: .touchUpInside)
+            }
             return cell
         }
         return UITableViewCell()
@@ -97,11 +104,39 @@ extension LessonsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
-        
-        self.performSegue(withIdentifier: AppDefine.Segue.lessonToPlayVideo, sender: nil)
+        let item = viewModel.listCell[indexPath.row]
+        if item.isUnLock {
+            self.performSegue(withIdentifier: AppDefine.Segue.lessonToPlayVideo, sender: nil)
+
+        }else{
+            unlockCource()
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //
     }
+    
+    func unlockCource(){
+        showAlert(mess: "Bạn cần 99 điểm để mở khoá bài học")
+    }
+    func showAlert( mess: String){
+        let view = MessageView.viewFromNib(layout: .CardView)
+        
+        // Theme message elements with the warning style.
+        view.configureTheme(.warning)
+        
+        view.configureContent(title: "Warning", body: mess, iconText: "🤔")
+        
+        // Add a drop shadow.
+        view.configureDropShadow()
+        
+        view.button?.isHidden = true
+    
+        // Show the message.
+        var config = SwiftMessages.Config()
+        config.duration = .seconds(seconds: 3)
+        SwiftMessages.show(config: config, view: view)
+    }
+
 }

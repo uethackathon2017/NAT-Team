@@ -29,7 +29,8 @@ Register.prototype.attach = function (router) {
             birthday: req.body.birthday || null,
             facebook_id: req.body.facebook_id || null,
             country_id: req.body.country_id,
-            language_id: req.body.language_id
+            language_id: req.body.language_id,
+            avatar: "http://54.169.121.38/image/user/8.jpg"
         };
         
         console.log(data);

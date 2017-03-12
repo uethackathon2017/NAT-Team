@@ -45,13 +45,13 @@ RoomHandle.prototype.attach = function (io, socket) {
         conn.query('call getRandomRoom(?)', [data.user_id], function(err, result) {
             if(err) {
                 console.log(err);
-                socket.emit('get-all-room', responseData.create(Const.successFalse, Const.msgError, Const.resError));
+                socket.emit('get-random-room', responseData.create(Const.successFalse, Const.msgError, Const.resError));
             } else {
                 var resData = responseData.create(Const.successTrue, Const.msgGetRoom, Const.resNoErrorCode);
                 resData.data = {
                     random: JSON.parse(JSON.stringify(result[0]))
                 };
-                socket.emit('get-all-room', resData);
+                socket.emit('get-random-room', resData);
             }
         })
     })

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IBAnimatable
 
 class LessonTableViewCell: UITableViewCell {
 
@@ -17,6 +18,7 @@ class LessonTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDes: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var imgAuthor: UIImageView!
+    @IBOutlet weak var btnUnLock: AnimatableButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
