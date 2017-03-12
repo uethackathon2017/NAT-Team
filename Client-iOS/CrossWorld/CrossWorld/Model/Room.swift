@@ -26,8 +26,8 @@ class RoomDetail: EVObject{
 
 class Room: EVObject{
     
-    var foreign_room: [RoomDetail]?
-    var friend_room: [RoomDetail]?
-    var native_room: [RoomDetail]?
+    var foreign_room: [RoomDetail] = []
+    var friend_room: [RoomDetail] = []
+    var native_room: [RoomDetail] = []
     
 }

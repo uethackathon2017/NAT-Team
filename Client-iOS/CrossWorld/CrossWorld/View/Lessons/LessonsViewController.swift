@@ -82,6 +82,8 @@ extension LessonsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblTitle.text = model.title
             cell.lblName.text = model.nameLesson
             cell.lblAuthor.text = model.author
+            cell.imgCover.image = UIImage(named: model.imageUrl)
+            cell.lblDes.text = model.shortDes
             return cell
         }
         return UITableViewCell()

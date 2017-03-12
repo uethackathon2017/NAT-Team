@@ -710,7 +710,7 @@ extension NSMutableAttributedString {
         }
     }
     
-    func italic(_ text: String, fontSize: CGFloat = 20, color: UIColor?)-> NSMutableAttributedString {
+    func italic(_ text: String, fontSize: CGFloat = 17, color: UIColor?)-> NSMutableAttributedString {
         
         var attribute: [String: AnyObject] = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: fontSize)]
         if let color = color{

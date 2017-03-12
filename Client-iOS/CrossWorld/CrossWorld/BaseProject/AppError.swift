@@ -21,7 +21,9 @@ class AppError {
         case blankMobile = "Hãy nhập số điện thoại"
         case blankCountry = "Chọn đất nước của bạn"
         case blankBỉthday = "Bạn chưa chọn ngày sinh"
+        case blankName = "Bạn chưa nhập tên"
         
         case invalidPass = "Mật khẩu không hợp lệ"
+        case invalidRePass = "Mật khẩu không khớp"
     }
 }

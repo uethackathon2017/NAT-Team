@@ -15,9 +15,9 @@ var SocketApiHandler = {
             console.log('New connection');
 
             socket.on('new-user', function (data, callback) {
+                var index = isExist(data.user_id);
                 var conn = mysql.createConnection(db);
                 conn.connect();
-
                 conn.query('SELECT room_id FROM room WHERE native_user=? or foreign_user=?', [data.user_id, data.user_id], function (err, result) {
                     if (err) {
                         console.log(err);
@@ -30,8 +30,15 @@ var SocketApiHandler = {
                                 }
                             }
                             socket.user_id = data.user_id;
-                            socket.status = 0;
-                            clients.push(socket);
+                            if(index == -1) {
+                                socket.status = 0;
+                                clients.push(socket);
+                                console.log('New User:'  + data.user_id);
+                            } else {
+                                clients[index].status = -1;
+                                clients[index] = socket;
+                                console.log('Replace User:'  + data.user_id);
+                            }
                         } catch(err) {
                             console.log(err);
                             socket.disconnect(true);
@@ -39,13 +46,14 @@ var SocketApiHandler = {
                         if (callback) callback(1);
                         require('./RoomHandle').attach(io, socket);
                         require('./ChatHandle').attach(io, socket);
+                        // require('./LessonHandle').attach(io, socket);
                     }
                     conn.end()
                 })
             });
 
             socket.on('disconnect', function () {
-                console.log('Disconnected')
+                console.log('Disconnected: '+ socket.user_id);
             })
         })
 
@@ -53,3 +61,12 @@ var SocketApiHandler = {
 };
 
 module['exports'] = SocketApiHandler;
+
+function isExist(id) {
+    for (var i = 0; i < clients.length; i++) {
+        if (id === clients[i].user_id) {
+            return i;
+        }
+    }
+    return -1;
+}

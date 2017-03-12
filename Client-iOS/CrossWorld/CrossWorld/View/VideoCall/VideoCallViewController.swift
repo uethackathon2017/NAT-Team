@@ -150,6 +150,7 @@ extension VideoCallViewController: ARDAppClientDelegate, RTCEAGLVideoViewDelegat
             remoteVideoTrack?.remove(remoteView)
         }
         remoteVideoTrack = nil
+        self.dismiss(animated: true, completion: nil)
     }
     
     func disconnect(){

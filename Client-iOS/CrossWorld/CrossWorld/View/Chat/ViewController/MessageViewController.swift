@@ -79,7 +79,7 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         
         initTableMessage()
         setup()
-        
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +88,6 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         if self.viewModel.listMessenger.count != 0 {
             self.tbMessage.scrollToRow(at: IndexPath(row: self.viewModel.listMessenger.count - 1, section: 0), at: UITableViewScrollPosition.middle, animated: false)
         }
-        getData()
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -107,7 +106,12 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         typeNavigationBar = .normal
         leftButtonType = .back
         rightButtonType = .call
-        self.title = AppDefine.Screen.chat
+        if let title = room.full_name{
+            self.title = title
+        }else{
+            self.title = AppDefine.Screen.chat
+            
+        }
     }
     
     override func leftNaviButtonTapped() {
@@ -180,6 +184,7 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
             let mess = Messenger()
             mess.content = content
             mess.sender = User.current.user_id
+            mess.time = Date().string()
             
             if isSuccess{
                 mess.wasSendFail = true
@@ -210,6 +215,15 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
         return viewModel.listMessenger.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let item = viewModel.listMessenger[indexPath.row]
+        if item.image != nil || item.photo != nil {
+            return 250
+        }else{
+            return UITableViewAutomaticDimension
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? LeftChatCell{
             cell.lbTime.isHidden = true
@@ -225,14 +239,72 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = viewModel.listMessenger[indexPath.row]
         if item.sender != User.current.user_id {
+            if item.image != nil {
+                if let rightImage = tableView.dequeueReusableCell(withIdentifier: "LeftImageTableViewCell", for: indexPath) as? LeftImageTableViewCell{
+                    rightImage.imgPhoto.kf.setImage(with: URL(string: item.image!))
+                    rightImage.lbTime.text = item.time?.getHourAndMinute()
+                    if let avatar = room.avatar {
+                        rightImage.imgAvatar.kf.setImage(with: URL(string: avatar))
+                    }
+                    return rightImage
+                }
+            }
+            
             let leftCell = tableView.dequeueReusableCell(withIdentifier: "LeftChatCell", for: indexPath) as! LeftChatCell
-            leftCell.lbReceiveMsg.text = item.content
-            leftCell.imgAvatar.backgroundColor = UIColor.blue
+            if let call = item.call_status {
+                if call.intValue != 0 {
+                    leftCell.lbReceiveMsg.attributedText = NSMutableAttributedString().italic(item.getCallStatus()!, color: UIColor.white)
+                }else{
+                    leftCell.lbReceiveMsg.text = item.content
+                }
+            }else{
+                leftCell.lbReceiveMsg.text = item.content
+            }
+           
+            leftCell.lbTime.text = item.time?.getHourAndMinute()
+            if let avatar = room.avatar {
+                leftCell.imgAvatar.kf.setImage(with: URL(string: avatar))
+                
+            }
             return leftCell
         }else{
+            if item.image != nil {
+                if let rightImage = tableView.dequeueReusableCell(withIdentifier: "RightImageTableViewCell", for: indexPath) as? RightImageTableViewCell{
+                    rightImage.imgPhoto.kf.setImage(with: URL(string: item.image!))
+                    rightImage.lbTime.text = item.time?.getHourAndMinute()
+                    if let avatar = User.current.avatar{
+                        rightImage.imgAvatar.kf.setImage(with: URL(string: avatar))
+                    }
+                    return rightImage
+                }
+            }
+            
+            if item.photo != nil{
+                if let rightImage = tableView.dequeueReusableCell(withIdentifier: "RightImageTableViewCell", for: indexPath) as? RightImageTableViewCell{
+                    rightImage.imgPhoto.image = item.photo
+                    rightImage.lbTime.text = item.time?.getHourAndMinute()
+                    if let avatar = User.current.avatar{
+                        rightImage.imgAvatar.kf.setImage(with: URL(string: avatar))
+                    }
+                    return rightImage
+                }
+            }
+            
             let rightCell = tableView.dequeueReusableCell(withIdentifier: "RightChatCell", for: indexPath) as! RightChatCell
-            rightCell.lbSenderMsg.text = item.content
-            rightCell.imgAvatar.backgroundColor = UIColor.green
+            if let call = item.call_status{
+                if call.intValue != 0 {
+                    rightCell.lbSenderMsg.attributedText = NSMutableAttributedString().italic(item.getCallStatus()!, color: UIColor.red)
+                }else{
+                    rightCell.lbSenderMsg.text = item.content
+                }
+            }else{
+                rightCell.lbSenderMsg.text = item.content
+            }
+            
+            rightCell.lbTime.text = item.time?.getHourAndMinute()
+            if let avatar = User.current.avatar{
+                rightCell.imgAvatar.kf.setImage(with: URL(string: avatar))
+            }
             
             if indexPath.row == self.viewModel.listMessenger.count - 1 && item.wasSendFail == true {
                 rightCell.imgState.image = #imageLiteral(resourceName: "TGMessageUnsentButton")
@@ -281,9 +353,54 @@ class MessageViewController: AppViewController , UITableViewDataSource, UITableV
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         imagePickerController.dismiss(animated: true, completion: nil)
+        
+        if images.count != 0 {
+            for item in images {
+                let image = item.resizeImage(newWidth: UIScreen.main.bounds.width)
+                let mess = Messenger()
+                mess.photo = image
+                mess.sender = User.current.user_id
+                mess.time = Date().string()
+                self.viewModel.listMessenger.append(mess)
+                self.tbMessage.reloadData()
+                
+                self.viewModel.sendNewPhoto(room_id: (self.room.room_id?.stringValue)!, image: image, complite: { (isSuccess) in
+                    
+                })
+            }
+        }
     }
     
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         
+    }
+    
+}
+
+extension UIImage{
+    func resizeImage(newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / self.size.width
+        let newHeight = self.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+}
+
+extension MessageViewController {
+    override func rightNaviButtonTapped() {
+        let request = CallRequestResponse()
+        request.avatar = room.avatar
+        request.callID = Int(Utils.random9DigitString()) as NSNumber?
+        request.roomId = room.room_id
+        request.hasVideo = 1
+        request.receiverId = room.user_id
+        request.fullName = room.full_name
+        VideoCallManager.share.makeCallRequest(request: request)
+        self.showCall(request: request, callState: OutCallViewController.CallState.waitingAnswer)
     }
 }

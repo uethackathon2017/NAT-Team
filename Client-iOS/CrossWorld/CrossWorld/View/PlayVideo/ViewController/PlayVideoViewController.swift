@@ -21,6 +21,7 @@ class PlayVideoViewController: AppViewController {
     
     // MARK: - Define
     var viewplay = XCDYouTubeVideoPlayerViewController()
+    let viewModel = LessonViewModel()
     
     // MARK: - Setup
     func preferToPlayVideo(){
@@ -42,6 +43,8 @@ class PlayVideoViewController: AppViewController {
         self.typeViewController = .child
         self.typeNavigationBar = .transparent
         self.leftButtonType = .back
+        
+        lbLessonName.text = viewModel.listCell[1].nameLesson
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,11 +67,15 @@ extension PlayVideoViewController : UICollectionViewDelegate, UICollectionViewDa
     //MARK: Collection View DataSource
     //Must copy: ,
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return viewModel.listCell.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayVideoCollectionViewCell", for: indexPath) as? PlayVideoCollectionViewCell{
+            let item = viewModel.listCell[indexPath.row]
+            cell.imgPhoto.image = UIImage(named: item.imageUrl)
+            cell.lbTitle.text = item.nameLesson
+            cell.lbDes.text = item.title
             return cell
         }
         

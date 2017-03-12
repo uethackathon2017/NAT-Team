@@ -24,6 +24,9 @@
 <form  id="form3" action="">
   <input id="m3" autocomplete="off" /><button>chat</button>
 </form>
+<form  id="form4" action="">
+  <input id="m4" autocomplete="off" /><button>create room</button>
+</form>
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
@@ -39,12 +42,20 @@
     //     return false;
     // });
 
+    $('#form4').submit(function () {
+        socket.emit('create-room', {user_id: 'aAblLBAV4K', other_user: 'B7I745Js5T'}, function(d){
+            $('#messages').append($('<li>').text(JSON.stringify(d)));
+        });
+        $('#m4').val('');
+        return false;
+    });
+
     $('#form3').submit(function () {
         socket.emit('send-message', 
             {
                 user_id: 'aAblLBAV4K',
                 message: $('#m3').val(),
-                room_id: 6
+                room_id: 1
         }, function(){});
         $('#m3').val('');
         return false;
@@ -54,9 +65,12 @@
         socket.emit('call', {
                 user_id: 'aAblLBAV4K',
                 receiver_id: 'B7I745Js5T',
-                room_id: 1,
+                room_id: 7,
+                call_id: 999
             }, 
-            function(){});
+            function(d){
+                $('#messages').append($('<li>').text(JSON.stringify(msg)));
+            });
         $('#m').val('');
         return false;
     });
@@ -85,6 +99,10 @@
     });
 
     socket.on('answer', function(msg){
+        $('#messages').append($('<li>').text(JSON.stringify(msg)));
+    });
+
+    socket.on('get-lesson', function(msg){
         $('#messages').append($('<li>').text(JSON.stringify(msg)));
     });
 

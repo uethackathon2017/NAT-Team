@@ -93,8 +93,50 @@ class RegisterDetailViewController: AppViewController {
     }
     
     // MARK: - Action
+    func validForm() -> AppError {
+        let res = AppError()
+        if (txtName.text ?? "").isBlank {
+            res.isError = true
+            res.errorType = .blankName
+            return res
+        }
+        if (txtPass.text ?? "").isBlank {
+            res.isError = true
+            res.errorType = .blankPass
+            return res
+        } else if txtPass.text!.characters.count < 6 {
+            res.isError = true
+            res.errorType = .invalidPass
+            return res
+        }
+        if (txtRePass.text ?? "").isBlank {
+            res.isError = true
+            res.errorType = .blankRePassword
+            return res
+        }
+        if (txtCountry.text ?? "").isBlank {
+            res.isError = true
+            res.errorType = .blankCountry
+            return res
+        }
+        if (txtBirthday.text ?? "").isBlank {
+            res.isError = true
+            res.errorType = .blankBỉthday
+            return res
+        }
+        if txtPass.text != txtRePass.text {
+            res.isError = true
+            res.errorType = .invalidRePass
+            return res
+        }
+        return res
+    }
+    
     func btnNextTap() {
-        self.performSegue(withIdentifier: AppDefine.Segue.registerDetailToLanguage, sender: nil)
+        let valid = validForm()
+        if !valid.isError {
+            self.performSegue(withIdentifier: AppDefine.Segue.registerDetailToLanguage, sender: nil)
+        }
     }
     
     func showCountryPicker() {

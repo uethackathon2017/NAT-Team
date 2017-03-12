@@ -80,8 +80,11 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="_animationType" value="pop(100)"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="demo_user" translatesAutoresizingMaskIntoConstraints="NO" id="Sns-OP-w3E">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="demo_user" translatesAutoresizingMaskIntoConstraints="NO" id="Sns-OP-w3E" customClass="AnimatableImageView" customModule="IBAnimatable">
                     <rect key="frame" x="135" y="114" width="105" height="105"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_maskType" value="Circle"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloë Moretz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-mP-E9r">
                     <rect key="frame" x="110" y="300" width="154.5" height="31.5"/>

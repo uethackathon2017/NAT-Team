@@ -68,6 +68,9 @@
     // get room
     Const.msgGetRoom = 'get room';
 
+    // create room
+    Const.msgCreateRoom = 'Create room';
+
     // socket token
     Const.msgTokenSuccess = "Token success";
     Const.msgNotValidToken = "Not valid token";
@@ -79,6 +82,7 @@
     Const.msgGetHistory = " Get history success";
 
     // call
+    Const.msgCall = "Call";
     Const.msgAcceptCall = "Accept";
     Const.msgTimeoutCall = "Timeout call";
     Const.msgDelineCall = "Decline call";
@@ -88,6 +92,8 @@
     Const.resTimeotCall = 152;
     Const.resDeclineCall = 151;
 
+    // get Lesson
+    Const.msgGetLesson = "Get lesson";
     // Exports ----------------------------------------------
     module["exports"] = Const;
 

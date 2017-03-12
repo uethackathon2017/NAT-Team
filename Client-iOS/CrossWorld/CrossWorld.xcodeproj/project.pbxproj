@@ -31,6 +31,8 @@
 		468828111E7319B2005514DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688280F1E7319B2005514DF /* RegisterViewController.swift */; };
 		468828161E733131005514DF /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828151E733131005514DF /* GroupViewController.swift */; };
 		468828181E733143005514DF /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468828171E733143005514DF /* GroupTableViewCell.swift */; };
+		46905F411E745BA900FC52D0 /* LeftImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46905F401E745BA900FC52D0 /* LeftImageTableViewCell.swift */; };
+		46905F431E745BB500FC52D0 /* RightImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46905F421E745BB500FC52D0 /* RightImageTableViewCell.swift */; };
 		46D6D3171E733D6F002A9018 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3131E733D6F002A9018 /* AvatarTableViewCell.swift */; };
 		46D6D3181E733D6F002A9018 /* LogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3141E733D6F002A9018 /* LogoutTableViewCell.swift */; };
 		46D6D31A1E733D9D002A9018 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D3191E733D9D002A9018 /* UserViewController.swift */; };
@@ -38,9 +40,12 @@
 		46D6D3201E7347CD002A9018 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D6D31F1E7347CD002A9018 /* NotificationViewController.swift */; };
 		AC1F13141E73A9A200595C17 /* OutCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F13121E73A9A200595C17 /* OutCallViewController.swift */; };
 		AC1F13151E73A9A200595C17 /* OutCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1F13131E73A9A200595C17 /* OutCallViewController.xib */; };
+		AC3530DB1E74C5CC00F7F307 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3530DA1E74C5CC00F7F307 /* SoundManager.swift */; };
+		AC3530DD1E74C67100F7F307 /* mtp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC3530DC1E74C67100F7F307 /* mtp.mp3 */; };
 		AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */; };
 		AC71938F1E73E99B00520F5D /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71938D1E73E99B00520F5D /* VideoCallViewController.swift */; };
 		AC7193901E73E99B00520F5D /* VideoCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC71938E1E73E99B00520F5D /* VideoCallViewController.xib */; };
+		AC9296101E74501F00F245CC /* VideoCallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92960F1E74501F00F245CC /* VideoCallManager.swift */; };
 		ACB47C3F1E72D2D10059E114 /* ASTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C3E1E72D2D10059E114 /* ASTextField.swift */; };
 		ACB47C451E72DC380059E114 /* RegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */; };
 		ACB47C471E72EBD00059E114 /* AppAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB47C461E72EBD00059E114 /* AppAccess.swift */; };
@@ -110,6 +115,8 @@
 		4688280F1E7319B2005514DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		468828151E733131005514DF /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		468828171E733143005514DF /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		46905F401E745BA900FC52D0 /* LeftImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftImageTableViewCell.swift; sourceTree = "<group>"; };
+		46905F421E745BB500FC52D0 /* RightImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightImageTableViewCell.swift; sourceTree = "<group>"; };
 		46D6D3131E733D6F002A9018 /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		46D6D3141E733D6F002A9018 /* LogoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutTableViewCell.swift; sourceTree = "<group>"; };
 		46D6D3191E733D9D002A9018 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -117,9 +124,12 @@
 		46D6D31F1E7347CD002A9018 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		AC1F13121E73A9A200595C17 /* OutCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutCallViewController.swift; sourceTree = "<group>"; };
 		AC1F13131E73A9A200595C17 /* OutCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutCallViewController.xib; sourceTree = "<group>"; };
+		AC3530DA1E74C5CC00F7F307 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		AC3530DC1E74C67100F7F307 /* mtp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mtp.mp3; sourceTree = "<group>"; };
 		AC4335BC1E72D19E00EFBF96 /* LoginDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
 		AC71938D1E73E99B00520F5D /* VideoCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		AC71938E1E73E99B00520F5D /* VideoCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCallViewController.xib; sourceTree = "<group>"; };
+		AC92960F1E74501F00F245CC /* VideoCallManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCallManager.swift; sourceTree = "<group>"; };
 		ACB47C3E1E72D2D10059E114 /* ASTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTextField.swift; sourceTree = "<group>"; };
 		ACB47C441E72DC380059E114 /* RegisterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDetailViewController.swift; sourceTree = "<group>"; };
 		ACB47C461E72EBD00059E114 /* AppAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAccess.swift; sourceTree = "<group>"; };
@@ -238,6 +248,8 @@
 			children = (
 				464EE8B21E72EC7600044C70 /* LeftChatCell.swift */,
 				464EE8B31E72EC7600044C70 /* RightChatCell.swift */,
+				46905F401E745BA900FC52D0 /* LeftImageTableViewCell.swift */,
+				46905F421E745BB500FC52D0 /* RightImageTableViewCell.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -434,6 +446,14 @@
 			path = InCall;
 			sourceTree = "<group>";
 		};
+		AC3530D91E74C57100F7F307 /* SoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				AC3530DA1E74C5CC00F7F307 /* SoundManager.swift */,
+			);
+			path = SoundManager;
+			sourceTree = "<group>";
+		};
 		AC4335BB1E72D18800EFBF96 /* LoginDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +469,14 @@
 				AC71938E1E73E99B00520F5D /* VideoCallViewController.xib */,
 			);
 			path = VideoCall;
+			sourceTree = "<group>";
+		};
+		AC92960E1E744FF400F245CC /* VideoCallSignal */ = {
+			isa = PBXGroup;
+			children = (
+				AC92960F1E74501F00F245CC /* VideoCallManager.swift */,
+			);
+			path = VideoCallSignal;
 			sourceTree = "<group>";
 		};
 		ACB47C3D1E72D2C60059E114 /* TextField */ = {
@@ -711,6 +739,7 @@
 		ACEFC8EC1E72C78900C39086 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AC3530DC1E74C67100F7F307 /* mtp.mp3 */,
 				464EE8BA1E72EC8300044C70 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -719,6 +748,8 @@
 		ACEFC8ED1E72C78900C39086 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AC3530D91E74C57100F7F307 /* SoundManager */,
+				AC92960E1E744FF400F245CC /* VideoCallSignal */,
 				ACB639611E73E15B00B47F38 /* Lib */,
 				ACB47C551E730A6D0059E114 /* CountryPicker */,
 				ACB47C501E72F93A0059E114 /* DatePicker */,
@@ -861,6 +892,7 @@
 				ACEFC8F21E72C78900C39086 /* Main.storyboard in Resources */,
 				ACB47C591E730AB30059E114 /* CountryPickerViewController.xib in Resources */,
 				ACEFC8F11E72C78900C39086 /* LaunchScreen.storyboard in Resources */,
+				AC3530DD1E74C67100F7F307 /* mtp.mp3 in Resources */,
 				AC7193901E73E99B00520F5D /* VideoCallViewController.xib in Resources */,
 				464EE8BB1E72EC8300044C70 /* Assets.xcassets in Resources */,
 			);
@@ -929,6 +961,7 @@
 				ACB6397B1E73E15B00B47F38 /* ARDWebSocketChannel.m in Sources */,
 				46D6D31C1E733DC4002A9018 /* UserViewModel.swift in Sources */,
 				468827FF1E7308FF005514DF /* LoginViewModel.swift in Sources */,
+				46905F431E745BB500FC52D0 /* RightImageTableViewCell.swift in Sources */,
 				ACB47C6E1E7325B60059E114 /* FriendViewController.swift in Sources */,
 				46D6D31A1E733D9D002A9018 /* UserViewController.swift in Sources */,
 				464EE8B91E72EC7600044C70 /* MessageViewController.swift in Sources */,
@@ -957,6 +990,7 @@
 				ACEFC8FD1E72C99500C39086 /* AppDefine.swift in Sources */,
 				ACB47C4F1E72F0CA0059E114 /* AppError.swift in Sources */,
 				463CC3551E73EC9400A28E9F /* DataAccess.swift in Sources */,
+				46905F411E745BA900FC52D0 /* LeftImageTableViewCell.swift in Sources */,
 				AC4335BD1E72D19E00EFBF96 /* LoginDetailViewController.swift in Sources */,
 				ACEFC8F51E72C7AE00C39086 /* User.swift in Sources */,
 				ACB639771E73E15B00B47F38 /* ARDMessageResponse.m in Sources */,
@@ -964,6 +998,8 @@
 				468827F91E7308DA005514DF /* ConversationViewController.swift in Sources */,
 				ACB47C841E73634A0059E114 /* LessonViewModel.swift in Sources */,
 				ACB47C861E7364E80059E114 /* LessonTableViewCell.swift in Sources */,
+				AC9296101E74501F00F245CC /* VideoCallManager.swift in Sources */,
+				AC3530DB1E74C5CC00F7F307 /* SoundManager.swift in Sources */,
 				AC71938F1E73E99B00520F5D /* VideoCallViewController.swift in Sources */,
 				AC1F13141E73A9A200595C17 /* OutCallViewController.swift in Sources */,
 				ACB47C5E1E7315140059E114 /* LanguageViewController.swift in Sources */,

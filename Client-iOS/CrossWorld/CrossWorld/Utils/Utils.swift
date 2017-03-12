@@ -137,4 +137,11 @@ extension Utils {
         }
     }
     
+    class func random9DigitString() -> String {
+        let min: UInt32 = 100_000_000
+        let max: UInt32 = 999_999_999
+        let i = min + arc4random_uniform(max - min + 1)
+        return String(i)
+    }
+    
 }

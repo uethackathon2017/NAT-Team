@@ -136,8 +136,9 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: AppDefine.cellId.idCellPeople, for: indexPath) as? PeopleTableViewCell {
                 let model = viewModel.listPeople[indexPath.row]
                 cell.lblName.text = model.title
-                cell.imgAvatar.kf.setImage(with: URL.init(string: model.urlAvatar))
-                cell.btnCall.addTarget(self, action: #selector(showCall), for: .touchUpInside)
+                cell.imgAvatar.image = UIImage().randomAvatar()
+                //cell.imgAvatar.kf.setImage(with: URL.init(string: model.urlAvatar))
+//                cell.btnCall.addTarget(self, action: #selector(showCall), for: .touchUpInside)
                 return cell
             }
             break
@@ -163,9 +164,9 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension FriendViewController {
-    func makeVideoCall() {
-        self.showCall()
-    }
+//    func makeVideoCall() {
+//        self.showCall()
+//    }
 }
 
 

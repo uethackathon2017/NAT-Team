@@ -5,6 +5,7 @@ var Const = require('../const');
 var chatMessage = require('../models/chat_message');
 var fs = require('fs');
 var imageURL = require('../config/imageURL');
+var user = require('../models/user');
 var conn;
 var rooms;
 
@@ -33,6 +34,49 @@ ChatHandle.prototype.attach = function (io, socket) {
         })
     });
 
+    socket.on('create-room', function (data, callback) {
+        console.log('create-room');
+        if(callback) {
+            var room = require('../models/room');
+            var item = {
+                native_user: data.other_user,
+                foreign_user: socket.user_id
+            }
+            var temp;
+            room.connect();
+            room.findByUser(item, function(err, result) {
+                if(err) {
+                    console.log(err);
+                    callback(responseData.create(Const.successFalse, Const.msgError, Const.resError));
+                } else {
+                    if(result) {
+                        temp = responseData.create(Const.successTrue, Const.msgCreateRoom, Const.resNoErrorCode);
+                        temp.data = {
+                            room_id: result.room_id
+                        }
+                        callback(temp);
+                    } else {
+                        conn = mysql.createConnection(db);
+                        conn.connect();
+                        conn.query('Insert into room set native_user=?, foreign_user=?', [item.native_user, item.foreign_user], function(err, r){
+                            if(err) {
+                                console.log(err);
+                                callback(responseData.create(Const.successFalse, Const.msgError, Const.resError));
+                            } else {
+                                temp = responseData.create(Const.successTrue, Const.msgCreateRoom, Const.resNoErrorCode);
+                                temp.data = {
+                                    room_id: r['insertId']
+                                }
+                                callback(temp);
+                            }
+                            conn.end();
+                        })
+                    }
+                }
+            });
+        }
+    });
+
     socket.on('send-message', function (data, callback) {
         console.log('send-message');
         var item = {
@@ -40,36 +84,16 @@ ChatHandle.prototype.attach = function (io, socket) {
             user_id: data.user_id,
             create_at: new Date()
         };
-        chatMessage.connect();
-        if (data.message) { //message
-            item.message = data.message;
-            chatMessage.create(item, function (err) {
-                if (err) {
-                    console.log(err);
-                    callback(false);
-                } else {
-                    var temp = responseData.create(Const.successTrue, Const.msgSendMessage, Const.resNoErrorCode);
-                    temp.data = {
-                        room_id: data.room_id,
-                        sender: data.user_id,
-                        time: item.create_at.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
-                        message: data.message
-                    };
-                    console.log(temp);
-                    socket.to(data.room_id).emit('send-message', temp);
-                    callback(true);
-                }
-            });
-        }
-
-        if (data.image) { //image
-            var name = getAvatarName(data.user_id);
-            fs.writeFile("./public/image/user/" + name, data.image, function (err) {
-                if (err) {
-                    console.log(err);
-                    callback(false);
-                } else {
-                    item.image = imageURL.user + name;
+        var user = require('../models/user');
+        user.connect();
+        user.findById(socket.user_id, function(err, dataUser) {
+            if(err) {
+                console.log(err);
+                callback(false);
+            } else {
+                if (data.message) { //message
+                    item.message = data.message;
+                    chatMessage.connect();
                     chatMessage.create(item, function (err) {
                         if (err) {
                             console.log(err);
@@ -80,7 +104,9 @@ ChatHandle.prototype.attach = function (io, socket) {
                                 room_id: data.room_id,
                                 sender: data.user_id,
                                 time: item.create_at.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
-                                image: data.image
+                                message: data.message,
+                                avatar: dataUser.avatar,
+                                full_name: dataUser.full_name
                             };
                             console.log(temp);
                             socket.to(data.room_id).emit('send-message', temp);
@@ -88,8 +114,36 @@ ChatHandle.prototype.attach = function (io, socket) {
                         }
                     });
                 }
-            });
-        }
+
+                if (data.image) { //image
+                    var name = getAvatarName(data.user_id);
+                    fs.writeFile("./public/image/user/" + name, data.image, 'base64', function (err) {
+                        if (err) {
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            item.image = imageURL.user + name;
+                            chatMessage.create(item, function (err) {
+                                if (err) {
+                                    console.log(err);
+                                    callback(false);
+                                } else {
+                                    var temp = responseData.create(Const.successTrue, Const.msgSendMessage, Const.resNoErrorCode);
+                                    temp.data = {
+                                        room_id: data.room_id,
+                                        sender: data.user_id,
+                                        time: item.create_at.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+                                        image: item.image
+                                    };
+                                    socket.to(data.room_id).emit('send-message', temp);
+                                    callback(true);
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        })
     });
 
     socket.on('typing', function (data, callback) {
@@ -98,13 +152,14 @@ ChatHandle.prototype.attach = function (io, socket) {
 
     socket.on('call', function (data, cbCall) {
         console.log('call');
-        cbCall(1);
+        if(cbCall) cbCall(1);
+        console.log(data);
         var chatMessage = require('../models/chat_message');
         chatMessage.connect();
 
         var item = {
             room_id: data.room_id,
-            user_id: data.user_id,
+            user_id: socket.user_id,
             create_at: new Date()
         };
         var receiverSocket = 0;
@@ -117,52 +172,71 @@ ChatHandle.prototype.attach = function (io, socket) {
 
         if(!receiverSocket) {
             socket.emit('answer', responseData.create(Const.successFalse, Const.msgReceiverNotFound, Const.resReceiverNotFound));
-        } else{
-            socket.on('cancel-call', function () {
-                receiverSocket.emit('cancel-call', 'Cancel');
-                clearTimeout(time);
-                receiverSocket.removeAllListeners('answer');
-                socket.removeAllListeners('cancel-call')
-
-                item.call_status = 2;
-                chatMessage.create(item, function (err) {
-                    if (err) console.log(err);
-                });
-            });
-
-            receiverSocket.emit('call', data, function () {
-            });
-
-            receiverSocket.on('answer', function (dataAnswer, cbAnswer) {
-                if (cbAnswer) cbAnswer(1);
-                if (dataAnswer.accept) {
-                    socket.emit('answer', responseData.create(Const.successTrue, Const.msgAcceptCall, Const.resNoErrorCode));
-                    item.call_status = 1;
-                    chatMessage.create(item, function (err) {
-                        if (err) console.log(err);
-                    });
+        } else {
+            user.connect();
+            user.findById(socket.user_id, function(err, dataUser) {
+                if(err) {
+                    console.log(err);
+                    socket.emit('answer', responseData.create(Const.successFalse, Const.msgError, Const.resError));
                 } else {
-                    socket.emit('answer', responseData.create(Const.successFalse, Const.msgDelineCall, Const.resDeclineCall));
+                    console.log("tim thay ne: " + receiverSocket.user_id);
+                    socket.on('cancel-call', function () {
+                        receiverSocket.emit('cancel-call', 'Cancel');
+                        clearTimeout(time);
+                        receiverSocket.removeAllListeners('answer');
+                        socket.removeAllListeners('cancel-call')
 
-                    item.call_status = 3;
-                    chatMessage.create(item, function (err) {
-                        if (err) console.log(err);
+                        item.call_status = 2;
+                        chatMessage.create(item, function (err) {
+                            if (err) console.log(err);
+                        });
                     });
-                }
-                clearTimeout(time);
-                socket.removeAllListeners('cancel-call');
-                receiverSocket.removeAllListeners('answer')
-            });
-            var time = setTimeout(function () {
-                receiverSocket.removeAllListeners('answer');
-                socket.removeAllListeners('cancel-call');
-                socket.emit('answer', responseData.create(Const.successFalse, Const.msgTimeoutCall, Const.resTimeotCall));
+                    // send data user
+                    var dataSender = responseData.create(Const.successTrue, Const.msgCall, Const.resNoErrorCode);
+                    dataSender.data = {
+                        "room_id": data.room_id,
+                        "sender": socket.user_id,
+                        "hasVideo": data.hasVideo,
+                        "avatar": dataUser.avatar,
+                        "full_name": dataUser.full_name,
+                        "call_id": data.call_id
+                    }
+                    receiverSocket.emit('call', dataSender, function () {
 
-                item.call_status = 2;
-                chatMessage.create(item, function (err) {
-                    if (err) console.log(err);
-                });
-            }, 20000);
+                    });
+
+                    receiverSocket.on('answer', function (dataAnswer, cbAnswer) {
+                        if (cbAnswer) cbAnswer(1);
+                        if (dataAnswer.accept) {
+                            socket.emit('answer', responseData.create(Const.successTrue, Const.msgAcceptCall, Const.resNoErrorCode));
+                            item.call_status = 1;
+                            chatMessage.create(item, function (err) {
+                                if (err) console.log(err);
+                            });
+                        } else {
+                            socket.emit('answer', responseData.create(Const.successFalse, Const.msgDelineCall, Const.resDeclineCall));
+
+                            item.call_status = 3;
+                            chatMessage.create(item, function (err) {
+                                if (err) console.log(err);
+                            });
+                        }
+                        clearTimeout(time);
+                        socket.removeAllListeners('cancel-call');
+                        receiverSocket.removeAllListeners('answer')
+                    });
+                    var time = setTimeout(function () {
+                        receiverSocket.removeAllListeners('answer');
+                        socket.removeAllListeners('cancel-call');
+                        socket.emit('answer', responseData.create(Const.successFalse, Const.msgTimeoutCall, Const.resTimeotCall));
+
+                        item.call_status = 2;
+                        chatMessage.create(item, function (err) {
+                            if (err) console.log(err);
+                        });
+                    }, 30000);
+                }
+            })
         }
     });
 

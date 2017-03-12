@@ -70,6 +70,23 @@ exports.findById = function (id, callback) {
     })
 };
 
+exports.findByUser = function (data, callback) {
+    Room.findOne({
+        where: {
+            native_user: data.native_user,
+            foreign_user: data.foreign_user
+        }
+    }).then(function (row) {
+        if (row) {
+            callback(null, row);
+        } else {
+            callback(null, null);
+        }
+    }).catch(function (err) {
+        callback(err, null);
+    })
+};
+
 exports.update = function (data, callback) {
     Room.findOne({
         where: {room_id: data.room_id}

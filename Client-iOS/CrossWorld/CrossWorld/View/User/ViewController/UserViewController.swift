@@ -130,7 +130,7 @@ class UserViewController: AppViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == viewModel.tbDataSource.count - 1{
             
-            //DataAccess.shared.removeUser()
+            DataAccess.shared.removeUser()
             
             //            APIRequest().logout(handle: { (isSuccess, data) in
             //                //

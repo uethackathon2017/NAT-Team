@@ -97,9 +97,9 @@ class GroupViewController: AppViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell", for: indexPath) as? GroupTableViewCell {
-            cell.imgPhoto.image = #imageLiteral(resourceName: "TGUserInfo")
-            cell.imgAvatarTop.image = #imageLiteral(resourceName: "home_lesson")
-            cell.imgAvatarBottom.image = #imageLiteral(resourceName: "home_word")
+            cell.imgPhoto.image = UIImage().randomAvatar()
+            cell.imgAvatarTop.image = UIImage().randomAvatar()
+            cell.imgAvatarBottom.image = UIImage().randomAvatar()
             
             return cell
         }

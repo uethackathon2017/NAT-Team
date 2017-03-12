@@ -22,28 +22,18 @@ RoomHandle.prototype.attach = function (io, socket) {
 		    			console.log(err);
 		    			socket.emit('get-all-room', responseData.create(Const.successFalse, Const.msgError, Const.resError));
 		    		} else {
-		    			conn.query('call getFriendRoom(?)', [data.user_id], function(err, friendRoom) {
-				    		if(err) {
-				    			console.log(err);
-				    			socket.emit('get-all-room', responseData.create(Const.successFalse, Const.msgError, Const.resError));
-				    		} else {
-				    			nativeRoom = JSON.stringify(nativeRoom[0]);
-		                    	nativeRoom = JSON.parse(nativeRoom);
-		                    	foreignRoom = JSON.stringify(foreignRoom[0]);
-		                    	foreignRoom = JSON.parse(foreignRoom);
-		                    	friendRoom = JSON.stringify(friendRoom[0]);
-		                    	friendRoom = JSON.parse(friendRoom);
-				    			var resData = responseData.create(Const.successTrue, Const.msgGetRoom, Const.resNoErrorCode);
-				    			resData.data = {
-				    				native_room: nativeRoom,
-				    				foreign_room: foreignRoom,
-				    				friend_room: friendRoom
-				    			};
-				    			socket.emit('get-all-room', resData);
-				    		}
-				    		conn.end();
-				    	})
+		    			nativeRoom = JSON.stringify(nativeRoom[0]);
+                    	nativeRoom = JSON.parse(nativeRoom);
+                    	foreignRoom = JSON.stringify(foreignRoom[0]);
+                    	foreignRoom = JSON.parse(foreignRoom);
+		    			var resData = responseData.create(Const.successTrue, Const.msgGetRoom, Const.resNoErrorCode);
+		    			resData.data = {
+		    				native_room: nativeRoom,
+		    				foreign_room: foreignRoom,
+		    			};
+		    			socket.emit('get-all-room', resData);
 		    		}
+                    conn.end();
 		    	})
     		}
     	})

@@ -157,7 +157,7 @@ class SocketRequest {
     }
     
 
-    func login(){ // Client connect socket and sent custom_id when login
+    func login(completeHandle:(()->())?){ // Client connect socket and sent custom_id when login
         self.onError()
         self.onDisconect()
         self.onReconnect()
@@ -174,9 +174,11 @@ class SocketRequest {
                 
                 self.appSocket.emitWithAck(SocketEvent.NEW_CLIENT, param).timingOut(after: 5, callback: { (data) in
                     print("new client \(data)")
+                    completeHandle?()
                 })
                 
             }
+            
         })
         
 //        self.appSocket.on("reconnect", callback: { (res, ack) in

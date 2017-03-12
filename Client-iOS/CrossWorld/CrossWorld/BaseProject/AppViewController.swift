@@ -220,7 +220,7 @@ extension AppViewController {
             }
             break
         case .call:
-            showCall()
+            //
             break
         default:
             fatalError("You need overide this method.")
@@ -230,9 +230,9 @@ extension AppViewController {
 }
 
 extension AppViewController {
-    func showCall() {
+    func showCall(request: CallRequestResponse, callState: OutCallViewController.CallState) {
         let callVC = OutCallViewController()
-        callVC.callState = .waitingAnswer
+        callVC.callState = callState
         callVC.popup = PopupController.create(self.tabBarController ?? self.navigationController ?? self).customize([
             PopupCustomOption.animation(PopupController.PopupAnimation.fadeIn),
             PopupCustomOption.backgroundStyle(PopupController.PopupBackgroundStyle.blackFilter(alpha: 0)),
@@ -241,8 +241,16 @@ extension AppViewController {
             PopupCustomOption.layout(PopupController.PopupLayout.center),
             ]).show(callVC)
         _ = callVC.popup.didCloseHandler { [weak self] (_) in
-            let videoVC = VideoCallViewController(nibName: "VideoCallViewController", bundle: nil)
-            self?.navigationController?.present(videoVC, animated: true, completion: nil)
+            if callVC.isAccept {
+                let videoVC = VideoCallViewController(nibName: "VideoCallViewController", bundle: nil)
+                self?.navigationController?.present(videoVC, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func listenCallRequest() {
+        VideoCallManager.share.startReceiveCall { [weak self] in
+            self?.showCall(request: VideoCallManager.share.callRequest, callState: OutCallViewController.CallState.requestIncommingVideo)
         }
     }
 }
